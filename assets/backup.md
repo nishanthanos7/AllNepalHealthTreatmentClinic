@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Nepal Health Treatment Clinic</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Custom CSS for Marquee Animation */
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 20s linear infinite;
+      will-change: transform;
+    }
+
+    /* Carousel Transitions */
+    .carousel-slide {
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    }
+    
+    .animate-text {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease-out;
+    }
+    .carousel-slide.active .animate-text-1 { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+    .carousel-slide.active .animate-text-2 { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+    .carousel-slide.active .animate-text-3 { transition-delay: 0.7s; opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-900 border-t-8 border-blue-700">
+
+  <!-- Top Contact Bar (Desktop & Mobile) -->
+  <div class="bg-white border-b py-2 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-3 text-xs md:text-sm text-slate-600">
+      <div class="flex flex-col md:flex-row gap-2 md:gap-6 w-full md:w-auto">
+        <div class="flex items-center gap-2">
+          <i data-lucide="map-pin" class="w-4 h-4 text-blue-700"></i>
+          <span>Nagarjun-01, Raniban, Kathmandu</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i data-lucide="phone" class="w-4 h-4 text-blue-700"></i>
+          <span>9761647713, 9761647716, 01-4950371</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i data-lucide="mail" class="w-4 h-4 text-blue-700"></i>
+          <span>allnepalhealthtreatmentclinic@gmail.com</span>
+        </div>
+      </div>
+      <div class="font-bold text-blue-800 pt-2 md:pt-0 border-t md:border-t-0 border-slate-100 w-full md:w-auto">
+        Regd: 306535/079/080
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand Header -->
+  <header class="bg-white pt-4 md:pt-6 pb-0 shadow-sm relative z-20">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      
+      <!-- Mobile Only Top Motto & Regd -->
+      <div class="flex md:hidden justify-between items-center text-[11px] mb-4 font-bold">
+        <div class="text-red-600 italic">"Prevention is better than cure"</div>
+        <div class="text-slate-800">Regd: 306535/079/080</div>
+      </div>
+
+      <!-- Main Header Content -->
+      <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 pb-4 md:pb-6">
+        
+        <!-- Logo (Left) -->
+        <div class="w-20 md:w-48 flex-shrink-0">
+          <!-- <img 
+            src="https://i.ibb.co/mVctczJz/Chat-GPT-Image-Apr-15-2026-12-45-18-PM.png" 
+            alt="Clinic Logo" 
+            class="h-20 md:h-44 w-auto object-contain" 
+            referrerpolicy="no-referrer"
+          /> -->
+
+              <img 
+            src="./assets/all_nepal_health_logo_transparent.png" 
+            alt="Clinic Logo" 
+            class="h-20 md:h-44 w-auto object-contain" 
+            referrerpolicy="no-referrer"
+          />
+
+
+        </div>
+
+        <!-- Center Name & Motto -->
+        <div class="flex flex-col items-center justify-center text-center flex-1 border-b-2 border-slate-900 md:border-b-0 pb-4 md:pb-0">
+          <!-- Desktop Only Motto (Centered above Name) -->
+          <div class="hidden md:block text-red-600 italic font-semibold text-sm mb-2">
+            "Prevention is better than cure"
+          </div>
+          
+          <h1 class="text-lg md:text-4xl font-black text-blue-800 leading-tight" style="letter-spacing: 0.1em;">
+            अल नेपाल हेल्थ ट्रीटमेन्ट क्लिनिक
+          </h1>
+          <h2 class="text-sm md:text-[1.7rem] leading-snug md:leading-normal font-black text-blue-900 uppercase mt-1 md:pt-2" style="letter-spacing: 0.02em;">
+            ALL NEPAL HEALTH <br class="md:hidden" /> TREATMENT CLINIC
+          </h2>
+        </div>
+
+        <!-- Red Cross Logo (Right) -->
+        <div class="w-20 md:w-40 flex-shrink-0">
+          <img 
+            src="./assets/redcross.png" 
+            alt="Red Cross" 
+            class="h-20 md:h-36 w-auto object-contain" 
+            referrerpolicy="no-referrer"
+          />
+        </div>
+      </div>
+
+  </header>
+
+  <!-- New Year Marquee -->
+  <div class="bg-blue-700 text-white py-3 overflow-hidden whitespace-nowrap border-y border-blue-600 relative z-10 w-full">
+    <div class="animate-marquee text-lg md:text-xl font-bold uppercase tracking-widest w-full flex">
+      <span class="mx-8 shrink-0">नयाँ वर्ष २०८३ को हार्दिक मंगलमय शुभकामना</span>
+      <span class="mx-8 shrink-0">Happy New Year 2083 BS</span>
+      <span class="mx-8 shrink-0">नयाँ वर्ष २०८३ को हार्दिक मंगलमय शुभकामना</span>
+      <span class="mx-8 shrink-0">Happy New Year 2083 BS</span>
+    </div>
+  </div>
+
+  <!-- Hero Carousel -->
+  <section class="relative h-[450px] md:h-[600px] overflow-hidden group">
+    
+    <!-- Slide 1 -->
+    <div class="carousel-slide active absolute inset-0 opacity-100 scale-100 z-10" id="slide-0">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop')">
+        <div class="absolute inset-0 bg-black/50"></div>
+      </div>
+      <div class="absolute inset-0 flex items-center justify-center text-center px-6">
+        <div class="max-w-4xl text-white space-y-6">
+          <div class="animate-text animate-text-1">
+            <h3 class="text-3xl md:text-5xl font-bold leading-tight">तपाईंको लागि आत्मीय स्वास्थ्य सेवा</h3>
+            <h3 class="text-xl md:text-3xl font-bold mt-3 text-blue-100">Compassionate Care for You</h3>
+          </div>
+          <div class="animate-text animate-text-2 text-base md:text-xl text-slate-200 max-w-2xl mx-auto">
+            <p>मानवीयता र आत्मीयताका साथ उत्कृष्ट स्वास्थ्य सेवा प्रदान गर्दै।</p>
+            <p class="mt-2">Providing exemplary healthcare services with a human touch.</p>
+          </div>
+          <div class="animate-text animate-text-3 pt-4">
+            <button class="bg-white text-blue-800 px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform active:scale-95">
+              Explore Our Services
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-slide absolute inset-0 opacity-0 scale-95 z-0" id="slide-1">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop')">
+        <div class="absolute inset-0 bg-black/50"></div>
+      </div>
+      <div class="absolute inset-0 flex items-center justify-center text-center px-6">
+        <div class="max-w-4xl text-white space-y-6">
+          <div class="animate-text animate-text-1">
+            <h3 class="text-3xl md:text-5xl font-bold leading-tight">अत्याधुनिक चिकित्सा सेवा</h3>
+            <h3 class="text-xl md:text-3xl font-bold mt-3 text-blue-100">Advanced Medical Expertise</h3>
+          </div>
+          <div class="animate-text animate-text-2 text-base md:text-xl text-slate-200 max-w-2xl mx-auto">
+            <p>नवीनतम प्रविधि र अनुभवी विशेषज्ञ चिकित्सकहरूद्वारा सेवा उपलब्ध।</p>
+            <p class="mt-2">Equipped with the latest technology and specialized medical personnel.</p>
+          </div>
+          <div class="animate-text animate-text-3 pt-4">
+            <button class="bg-white text-blue-800 px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform active:scale-95">
+              Explore Our Services
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-slide absolute inset-0 opacity-0 scale-95 z-0" id="slide-2">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop')">
+        <div class="absolute inset-0 bg-black/50"></div>
+      </div>
+      <div class="absolute inset-0 flex items-center justify-center text-center px-6">
+        <div class="max-w-4xl text-white space-y-6">
+          <div class="animate-text animate-text-1">
+            <h3 class="text-3xl md:text-5xl font-bold leading-tight">शैक्षिक स्वास्थ्य कार्यक्रम</h3>
+            <h3 class="text-xl md:text-3xl font-bold mt-3 text-blue-100">Educational Health Programs</h3>
+          </div>
+          <div class="animate-text animate-text-2 text-base md:text-xl text-slate-200 max-w-2xl mx-auto">
+            <p>विद्यार्थीहरूको स्वास्थ्य र सुनौलो भविष्यको सुनिश्चितता।</p>
+            <p class="mt-2">Securing the health and future of our students.</p>
+          </div>
+          <div class="animate-text animate-text-3 pt-4">
+            <button class="bg-white text-blue-800 px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform active:scale-95">
+              Explore Our Services
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Controls -->
+    <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-3 rounded-full text-white backdrop-blur-sm transition opacity-100 md:opacity-0 group-hover:opacity-100 z-20">
+      <i data-lucide="chevron-left" class="w-6 h-6"></i>
+    </button>
+    <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-3 rounded-full text-white backdrop-blur-sm transition opacity-100 md:opacity-0 group-hover:opacity-100 z-20">
+      <i data-lucide="chevron-right" class="w-6 h-6"></i>
+    </button>
+
+    <!-- Carousel Dots -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20" id="carousel-dots">
+      <button onclick="setSlide(0)" class="carousel-dot w-8 h-2.5 rounded-full transition-all bg-white"></button>
+      <button onclick="setSlide(1)" class="carousel-dot w-2.5 h-2.5 rounded-full transition-all bg-white/40"></button>
+      <button onclick="setSlide(2)" class="carousel-dot w-2.5 h-2.5 rounded-full transition-all bg-white/40"></button>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="py-16 md:py-24 px-4 md:px-8 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div class="space-y-6">
+          <!-- Introduction Header -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="bg-blue-100 text-blue-700 p-3 rounded-full">
+                <i data-lucide="info" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-bold text-blue-800">Introduction</h3>
+            </div>
+            <div class="border-l-4 border-blue-700 pl-6 space-y-3">
+              <h2 class="text-xl md:text-2xl font-bold text-slate-800 leading-tight">
+                Your Trusted Healthcare Partner in Kathmandu
+              </h2>
+              <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+                All Nepal Health Treatment Clinic is a network of highly specialized personnel organized into departments designed to carry out clinical, administrative, and operational tasks required to provide effective and efficient client's care services.
+              </p>
+              <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+                We provide preventive, diagnostic, therapeutic and palliative services. Our facilities are equipped with the latest technologies, and we use evidence-based practices to ensure that our clients receive the best care possible.
+              </p>
+            </div>
+          </div>
+
+          <!-- Features -->
+          <div class="grid grid-cols-2 gap-4 pt-4">
+            <div class="flex items-start gap-3">
+              <div class="bg-blue-700 p-2.5 rounded-lg text-white flex-shrink-0">
+                <i data-lucide="users" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="font-bold text-slate-800 text-sm md:text-base">Expert Doctors</div>
+                <div class="text-xs text-slate-500">Qualified medical team</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="bg-blue-700 p-2.5 rounded-lg text-white flex-shrink-0">
+                <i data-lucide="heart-pulse" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="font-bold text-slate-800 text-sm md:text-base">Holistic Care</div>
+                <div class="text-xs text-slate-500">Care and Compassion</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative px-4 md:px-0">
+          <div class="bg-blue-200 absolute -inset-2 md:-inset-4 rounded-2xl -rotate-2 z-0"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop" 
+            alt="Medical Team" 
+            class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-[400px] md:h-[500px]"
+            referrerpolicy="no-referrer"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="py-16 md:py-24 px-4 md:px-8 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div class="space-y-6">
+          <!-- Mission Header -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="bg-red-100 text-red-700 p-3 rounded-full">
+                <i data-lucide="target" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-bold text-red-700">Mission</h3>
+            </div>
+            <div class="border-l-4 border-red-700 pl-6 space-y-3">
+              <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+                To provide hope, care, and cure for its compassionate, accessible, high-quality, cost-effective healthcare to all.
+              </p>
+              <ul class="space-y-2 text-slate-600 text-sm md:text-base">
+                <li class="flex items-start gap-3">
+                  <span class="text-red-700 font-bold mt-1">•</span>
+                  <span>To serve with patients oriented work towards a patient centered care.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative px-4 md:px-0">
+          <div class="bg-red-200 absolute -inset-2 md:-inset-4 rounded-2xl -rotate-2 z-0"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2080&auto=format&fit=crop" 
+            alt="Mission" 
+            class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-[400px] md:h-[500px]"
+            referrerpolicy="no-referrer"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision Section -->
+  <section class="py-16 md:py-24 px-4 md:px-8 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div class="space-y-6">
+          <!-- Vision Header -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="bg-blue-100 text-blue-700 p-3 rounded-full">
+                <i data-lucide="eye" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-bold text-blue-700">Vision</h3>
+            </div>
+            <div class="border-l-4 border-blue-700 pl-6 space-y-3">
+              <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+                Compassionate care, exemplary services to all at any time.
+              </p>
+              <ul class="space-y-2 text-slate-600 text-sm md:text-base">
+                <li class="flex items-start gap-3">
+                  <span class="text-blue-700 font-bold mt-1">•</span>
+                  <span>Our Vision reflects our desire to provide leading practices in health care in modern, well equipped facilities.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-blue-700 font-bold mt-1">•</span>
+                  <span>Our health care provision will deliver a positive service experience.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-blue-700 font-bold mt-1">•</span>
+                  <span>Our patients will receive great care and support at every opportunity.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative px-4 md:px-0">
+          <div class="bg-blue-200 absolute -inset-2 md:-inset-4 rounded-2xl -rotate-2 z-0"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2080&auto=format&fit=crop" 
+            alt="Vision" 
+            class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-[400px] md:h-[500px]"
+            referrerpolicy="no-referrer"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-20 md:py-24 bg-white px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Stats Section -->
+      <div class="mb-16 md:mb-20 grid grid-cols-2 gap-6 md:gap-8 max-w-2xl">
+        <div class="border-l-4 border-blue-700 pl-4 space-y-1 md:space-y-2">
+          <h4 class="text-lg md:text-xl font-bold text-slate-800 uppercase tracking-wider italic">शाखाहरू / Branches:</h4>
+          <p class="text-3xl md:text-4xl font-black text-blue-700">12+</p>
+          <p class="text-[10px] md:text-xs text-slate-500 uppercase font-bold tracking-widest">Clinics & Departments</p>
+        </div>
+        <div class="border-l-4 border-blue-700 pl-4 space-y-1 md:space-y-2">
+          <h4 class="text-lg md:text-xl font-bold text-slate-800 uppercase tracking-wider italic">सेवाग्राही / Patients:</h4>
+          <p class="text-3xl md:text-4xl font-black text-blue-700">50,000+</p>
+          <p class="text-[10px] md:text-xs text-slate-500 uppercase font-bold tracking-widest">Satisfied Individuals</p>
+        </div>
+      </div>
+
+      <div class="text-center space-y-4 mb-12 md:mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-800 tracking-tight">Our Services</h2>
+        <div class="w-20 md:w-24 h-1 bg-blue-700 mx-auto rounded-full"></div>
+        <p class="text-slate-600 max-w-2xl mx-auto text-sm md:text-base px-4">
+          We offer a wide range of medical and mental health resources, educational and preventative programs.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+
+         <div onclick="openServiceModal('educational')" class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 transition-all h-full flex flex-col items-center text-center space-y-4 duration-300 group cursor-pointer">
+          <div class="bg-blue-100 text-blue-700 p-4 rounded-xl group-hover:bg-blue-700 group-hover:text-white transition-colors">
+            <i data-lucide="school" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800">
+            <br/>
+            <span class="text-sm md:text-base text-blue-700 font-semibold mt-1 block">Educational Health</span>
+          </h3>
+          <p class="text-slate-500 text-sm leading-relaxed">
+            Securing the future of students through dedicated health screenings.
+          </p>
+        </div>
+
+         <div onclick="openServiceModal('homecare')" class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 transition-all h-full flex flex-col items-center text-center space-y-4 duration-300 group cursor-pointer">
+          <div class="bg-blue-100 text-blue-700 p-4 rounded-xl group-hover:bg-blue-700 group-hover:text-white transition-colors">
+            <i data-lucide="home" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800">
+           <br/>
+            <span class="text-sm md:text-base text-blue-700 font-semibold mt-1 block">Home Care Service</span>
+          </h3>
+          <p class="text-slate-500 text-sm leading-relaxed">
+            Professional support services allowing persons to live safely in their home.
+          </p>
+        </div>
+
+        <div onclick="openServiceModal('community')" class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 transition-all h-full flex flex-col items-center text-center space-y-4 duration-300 group cursor-pointer">
+          <div class="bg-blue-100 text-blue-700 p-4 rounded-xl group-hover:bg-blue-700 group-hover:text-white transition-colors">
+            <i data-lucide="building-2" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800">
+            <br/>
+            <span class="text-sm md:text-base text-blue-700 font-semibold mt-1 block">Community Health Care</span>
+          </h3>
+          <p class="text-slate-500 text-sm leading-relaxed">
+            Focusing on overall health characteristics of the local demography.
+          </p>
+        </div>
+        
+        <div onclick="openServiceModal('corporate')" class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 transition-all h-full flex flex-col items-center text-center space-y-4 duration-300 group cursor-pointer">
+          <div class="bg-blue-100 text-blue-700 p-4 rounded-xl group-hover:bg-blue-700 group-hover:text-white transition-colors">
+            <i data-lucide="activity" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800">
+           <br/>
+            <span class="text-sm md:text-base text-blue-700 font-semibold mt-1 block">Corporate Health Care</span>
+          </h3>
+          <p class="text-slate-500 text-sm leading-relaxed">
+            Improving medical status and well-being of employees in corporate environments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Educational Health - Special Section -->
+  <!-- <section class="py-20 md:py-24 bg-blue-50">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="bg-white rounded-3xl overflow-hidden shadow-xl grid md:grid-cols-2">
+        <div class="p-8 md:p-12 space-y-8">
+          <div class="space-y-4">
+            <span class="text-blue-700 font-bold tracking-widest uppercase text-xs md:text-sm">Educational Health Program</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800">
+             
+              <span class="block text-blue-700 mt-2 text-2xl md:text-3xl">Fundamental Health Care Plan</span>
+            </h2>
+            <div class="inline-flex items-center gap-2 bg-blue-700 text-white px-5 py-2 md:px-6 md:py-2.5 rounded-full font-bold shadow-lg mt-2">
+              <span class="text-xl md:text-2xl font-black italic">Rs. 150</span>
+              <span class="opacity-90 text-xs md:text-sm font-medium">/ month per student</span>
+            </div>
+          </div>
+          
+          <ul class="grid sm:grid-cols-2 gap-4">
+            <li class="flex items-center gap-3 text-slate-700 font-medium text-sm md:text-base">
+              <i data-lucide="shield-check" class="text-blue-700 shrink-0 w-5 h-5"></i>
+              <span>General Health Checkup</span>
+            </li>
+            <li class="flex items-center gap-3 text-slate-700 font-medium text-sm md:text-base">
+              <i data-lucide="shield-check" class="text-blue-700 shrink-0 w-5 h-5"></i>
+              <span>General Dental Checkup</span>
+            </li>
+            <li class="flex items-center gap-3 text-slate-700 font-medium text-sm md:text-base">
+              <i data-lucide="shield-check" class="text-blue-700 shrink-0 w-5 h-5"></i>
+              <span>ENT checkup (Ear, Nose, Throat)</span>
+            </li>
+            <li class="flex items-center gap-3 text-slate-700 font-medium text-sm md:text-base">
+              <i data-lucide="shield-check" class="text-blue-700 shrink-0 w-5 h-5"></i>
+              <span>Mental Health Screening</span>
+            </li>
+            <li class="flex items-center gap-3 text-slate-700 font-medium text-sm md:text-base">
+              <i data-lucide="shield-check" class="text-blue-700 shrink-0 w-5 h-5"></i>
+              <span>Lab Test (Blood Grouping)</span>
+            </li>
+            <li class="flex items-center gap-3 text-slate-700 font-medium text-sm md:text-base">
+              <i data-lucide="shield-check" class="text-blue-700 shrink-0 w-5 h-5"></i>
+              <span>Annual Medical Report</span>
+            </li>
+          </ul>
+
+          <button class="w-full bg-blue-700 text-white py-4 rounded-xl font-bold hover:bg-blue-800 transition flex items-center justify-center gap-2 text-lg shadow-md hover:shadow-xl">
+            <i data-lucide="school" class="w-6 h-6"></i>
+            Register Institution
+          </button>
+        </div>
+        <div class="bg-blue-700 relative flex items-center justify-center p-8 md:p-12">
+           <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-900 opacity-90"></div>
+           <div class="relative text-white space-y-8 w-full">
+             <h3 class="text-2xl md:text-3xl font-bold border-b border-blue-400/30 pb-4">Objectives</h3>
+             <div class="space-y-6 font-light text-blue-50">
+               <div class="flex gap-4 items-start">
+                 <div class="bg-white/20 p-2 rounded-lg shrink-0 mt-1"><i data-lucide="chevron-right" class="w-4 h-4"></i></div>
+                 <p class="text-base md:text-lg">Increase student attendance by reducing health-related absences.</p>
+               </div>
+               <div class="flex gap-4 items-start">
+                 <div class="bg-white/20 p-2 rounded-lg shrink-0 mt-1"><i data-lucide="chevron-right" class="w-4 h-4"></i></div>
+                 <p class="text-base md:text-lg">Create a positive educational institution climate that fosters learning.</p>
+               </div>
+               <div class="flex gap-4 items-start">
+                 <div class="bg-white/20 p-2 rounded-lg shrink-0 mt-1"><i data-lucide="chevron-right" class="w-4 h-4"></i></div>
+                 <p class="text-base md:text-lg">Develop proper nutrition and physical health habits among students.</p>
+               </div>
+             </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Specialist Services Preview -->
+  <section class="py-20 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Why choose us? / हामीलाई किन रोज्ने?</h2>
+      <div class="w-16 h-1 bg-blue-700 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <!-- Why Choose Us Image & Benefits -->
+    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+      <!-- Image -->
+      <div class="flex justify-center order-2 md:order-1">
+        <img 
+          src="./assets/whyChooseUs.png" 
+          alt="Why Choose Us" 
+          class="rounded-2xl shadow-xl max-w-md w-full object-cover"
+          referrerpolicy="no-referrer"
+        />
+      </div>
+      
+      <!-- Benefits Text -->
+      <div class="order-1 md:order-2 space-y-4">
+        <h3 class="text-2xl md:text-3xl font-bold text-slate-800 mb-6">Our Commitment to Excellence</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <div class="bg-blue-700 text-white p-2 rounded-lg flex-shrink-0 mt-1">
+              <i data-lucide="check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-800">Exceptional Quality Care</h4>
+              <p class="text-slate-600 text-sm">Top-notch medical services with modern facilities</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="bg-blue-700 text-white p-2 rounded-lg flex-shrink-0 mt-1">
+              <i data-lucide="check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-800">Highly Qualified Team</h4>
+              <p class="text-slate-600 text-sm">Experienced doctors and healthcare professionals</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="bg-blue-700 text-white p-2 rounded-lg flex-shrink-0 mt-1">
+              <i data-lucide="check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-800">Affordable & Accessible</h4>
+              <p class="text-slate-600 text-sm">Cost-effective healthcare for everyone</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 md:gap-8">
+      <div class="flex flex-col items-center gap-3 md:gap-4 group">
+        <div class="bg-white shadow-lg shadow-blue-900/5 p-5 md:p-6 rounded-full text-blue-700 group-hover:bg-blue-700 group-hover:text-white transition-all duration-300 group-hover:scale-110">
+          <i data-lucide="hand-heart" class="w-7 h-7 md:w-8 md:h-8"></i>
+        </div>
+        <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Quality Care</span>
+      </div>
+      <div class="flex flex-col items-center gap-3 md:gap-4 group">
+        <div class="bg-white shadow-lg shadow-blue-900/5 p-5 md:p-6 rounded-full text-blue-700 group-hover:bg-blue-700 group-hover:text-white transition-all duration-300 group-hover:scale-110">
+          <i data-lucide="activity" class="w-7 h-7 md:w-8 md:h-8"></i>
+        </div>
+        <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Cost-Effective</span>
+      </div>
+      <div class="flex flex-col items-center gap-3 md:gap-4 group">
+        <div class="bg-white shadow-lg shadow-blue-900/5 p-5 md:p-6 rounded-full text-blue-700 group-hover:bg-blue-700 group-hover:text-white transition-all duration-300 group-hover:scale-110">
+          <i data-lucide="stethoscope" class="w-7 h-7 md:w-8 md:h-8"></i>
+        </div>
+        <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Expertise</span>
+      </div>
+      <div class="flex flex-col items-center gap-3 md:gap-4 group">
+        <div class="bg-white shadow-lg shadow-blue-900/5 p-5 md:p-6 rounded-full text-blue-700 group-hover:bg-blue-700 group-hover:text-white transition-all duration-300 group-hover:scale-110">
+          <i data-lucide="users" class="w-7 h-7 md:w-8 md:h-8"></i>
+        </div>
+        <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Reputation</span>
+      </div>
+      <div class="flex flex-col items-center gap-3 md:gap-4 group">
+        <div class="bg-white shadow-lg shadow-blue-900/5 p-5 md:p-6 rounded-full text-blue-700 group-hover:bg-blue-700 group-hover:text-white transition-all duration-300 group-hover:scale-110">
+          <i data-lucide="map-pin" class="w-7 h-7 md:w-8 md:h-8"></i>
+        </div>
+        <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Accessibility</span>
+      </div>
+      <div class="flex flex-col items-center gap-3 md:gap-4 group">
+        <div class="bg-white shadow-lg shadow-blue-900/5 p-5 md:p-6 rounded-full text-blue-700 group-hover:bg-blue-700 group-hover:text-white transition-all duration-300 group-hover:scale-110">
+          <i data-lucide="shield-check" class="w-7 h-7 md:w-8 md:h-8"></i>
+        </div>
+        <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Innovation</span>
+      </div>
+      <div class="flex flex-col items-center gap-3 md:gap-4 group">
+        <div class="bg-white shadow-lg shadow-blue-900/5 p-5 md:p-6 rounded-full text-blue-700 group-hover:bg-blue-700 group-hover:text-white transition-all duration-300 group-hover:scale-110">
+          <i data-lucide="brain" class="w-7 h-7 md:w-8 md:h-8"></i>
+        </div>
+        <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Mental Health</span>
+      </div>
+      <div class="flex flex-col items-center gap-3 md:gap-4 group">
+        <div class="bg-white shadow-lg shadow-blue-900/5 p-5 md:p-6 rounded-full text-blue-700 group-hover:bg-blue-700 group-hover:text-white transition-all duration-300 group-hover:scale-110">
+          <i data-lucide="eye" class="w-7 h-7 md:w-8 md:h-8"></i>
+        </div>
+        <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Ophthalmology</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-16 md:py-20 px-4 md:px-8 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-12">
+      <div class="md:col-span-2 space-y-6">
+         <div class="flex items-center gap-4">
+           <img src="https://i.ibb.co/mVctczJz/Chat-GPT-Image-Apr-15-2026-12-45-18-PM.png" alt="Logo" class="h-14 w-auto brightness-0 invert" referrerpolicy="no-referrer" />
+           <div>
+              <h4 class="text-white font-bold text-xl md:text-2xl leading-tight">All Nepal Health</h4>
+              <p class="text-xs uppercase tracking-widest text-blue-400 mt-1">Treatment Clinic</p>
+           </div>
+         </div>
+         <p class="text-sm leading-relaxed max-w-md text-slate-400">
+            Dedicated to providing high-quality, accessible, and cost-effective healthcare services across Nepal. Our network of specialized clinics is committed to your well-being.
+         </p>
+         <div class="flex gap-4 pt-2">
+           <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition cursor-pointer">
+              <i data-lucide="facebook" class="w-4 h-4"></i>
+           </div>
+           <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition cursor-pointer">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+           </div>
+           <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition cursor-pointer">
+              <i data-lucide="twitter" class="w-4 h-4"></i>
+           </div>
+         </div>
+      </div>
+      
+      <div class="space-y-6">
+        <h4 class="text-white font-bold uppercase text-sm tracking-widest border-b border-slate-700 pb-3 inline-block">Contact Info</h4>
+        <ul class="space-y-4 text-sm">
+          <li class="flex items-start gap-3">
+            <i data-lucide="map-pin" class="text-blue-500 shrink-0 w-5 h-5"></i>
+            <span class="leading-relaxed">Nagarjun-01, Raniban,<br/>Kathmandu, Nepal</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="phone" class="text-blue-500 shrink-0 w-5 h-5"></i>
+            <span class="leading-relaxed">+977-1-4950371<br/>9761647713, 9761647716</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="mail" class="text-blue-500 shrink-0 w-5 h-5"></i>
+            <span>allnepalhealth@gmail.com</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="space-y-6 text-center md:text-right mt-4 md:mt-0">
+         <div class="bg-blue-900/40 p-6 rounded-2xl border border-blue-500/20 backdrop-blur-sm text-center">
+           <h5 class="text-blue-400 font-bold mb-2 uppercase text-xs tracking-widest flex items-center justify-center gap-2">
+             <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+             Emergency 24/7
+           </h5>
+           <p class="text-2xl md:text-3xl font-bold text-white mb-4">+977 1 4950371</p>
+           <button class="w-full bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl text-sm font-bold transition shadow-lg">
+             Get Directions
+          </button>
+         </div>
+         <div class="pt-4 space-y-2">
+           <p class="text-[10px] uppercase text-slate-500 tracking-[0.1em]">© 2026 All Nepal Health Treatment Clinic</p>
+           <p class="text-[10px] uppercase text-slate-500 tracking-[0.1em]">Crafted for Health & Cure</p>
+         </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Carousel Logic
+    let currentSlide = 0;
+    const totalSlides = 3;
+    const slides =[
+      document.getElementById('slide-0'),
+      document.getElementById('slide-1'),
+      document.getElementById('slide-2')
+    ];
+    const dots = document.querySelectorAll('.carousel-dot');
+    let autoPlayTimer;
+
+    function updateCarousel() {
+      // Update Slides
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.remove('opacity-0', 'scale-95', 'z-0');
+          slide.classList.add('opacity-100', 'scale-100', 'z-10', 'active');
+        } else {
+          slide.classList.add('opacity-0', 'scale-95', 'z-0');
+          slide.classList.remove('opacity-100', 'scale-100', 'z-10', 'active');
+        }
+      });
+
+      // Update Dots
+      dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+          dot.classList.add('bg-white', 'w-8');
+          dot.classList.remove('bg-white/40', 'w-2.5');
+        } else {
+          dot.classList.remove('bg-white', 'w-8');
+          dot.classList.add('bg-white/40', 'w-2.5');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+      resetTimer();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+      resetTimer();
+    }
+
+    function setSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+      resetTimer();
+    }
+
+    function resetTimer() {
+      clearInterval(autoPlayTimer);
+      autoPlayTimer = setInterval(nextSlide, 6000); // 6 seconds per slide
+    }
+
+    // Start Autoplay
+    resetTimer();
+
+    // Service Modal Functions
+    function openServiceModal(service) {
+      const modal = document.getElementById('serviceModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      
+      const content = {
+        educational: {
+          title: 'Educational Health Care',
+          icon: 'school',
+          color: 'bg-blue-700',
+          content: `
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">Educational Health Care</h3>
+            <p class="text-slate-600 leading-relaxed mb-4">
+              The plan of this programme is to check up on the health of children and young people aged up to 30 years. The main priority is health safety to the students. Studies have shown that the students are at high risk of physical and mental health issues. To mitigate these issues, our organization has introduced its educational health care Program to improve their health.
+            </p>
+            <p class="text-slate-600 leading-relaxed">
+              We provide preventive, diagnostic, therapeutic and palliative services. Our facilities are equipped with the latest technologies, and we use evidence-based practices to ensure that our clients receive the best care possible.
+            </p>
+          `
+        },
+        homecare: {
+          title: 'Home Care Health Service',
+          icon: 'home',
+          color: 'bg-green-700',
+          content: `
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">Home Care Health Service</h3>
+            <p class="text-slate-600 leading-relaxed mb-4">
+              Home care includes any professional support services that allow a person to live safely in their home. Professional caregivers such as nurses, therapists and medical personnel provide short - term or long - term care in the home, depending on a person's need. It includes Doctor on call, Sample collection for lab tests at home and E-pharmacy or Medicine delivery at home.
+            </p>
+            <p class="text-slate-600 leading-relaxed">
+              We ensure patient comfort and safety with professional, compassionate care services delivered at your doorstep.
+            </p>
+          `
+        },
+        community: {
+          title: 'Community Health Care',
+          icon: 'building-2',
+          color: 'bg-red-700',
+          content: `
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">Community Health Care</h3>
+            <p class="text-slate-600 leading-relaxed mb-4">
+              A healthy community benefits from the healthy life of the people. Community health is a means of achieving a healthy community. Community health care focuses on an overall geographic area rather than shared characteristics of the local demography. The defined area could be a small city or an entire region. The main motto is to find out the health condition of the people in that city dwellers. The primary goal is to improve the community's overall health status.
+            </p>
+            <p class="text-slate-600 leading-relaxed">
+              We work to improve accessibility and provide access to a wide range of medical and mental health resources, as educational and preventative programmes.
+            </p>
+          `
+        },
+        corporate: {
+          title: 'Corporate Health Care',
+          icon: 'activity',
+          color: 'bg-orange-700',
+          content: `
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">Corporate Health Care</h3>
+            <p class="text-slate-600 leading-relaxed mb-4">
+              This program is intended to improve the health status and well-being of the employees in a corporate work environment. Moreover, it serves to enhance the general well-being of the workforce. It lowers health care expenses, and enhances corporate productivity. It includes physical examination, body morphology, health screening lab tests and more. The program is more focused on preventative care, promoting physical and mental health.
+            </p>
+            <p class="text-slate-600 leading-relaxed">
+              We provide comprehensive health programs designed to support employee wellness and workplace productivity.
+            </p>
+          `
+        }
+      };
+
+      const data = content[service];
+      document.getElementById('modalTitle').textContent = data.title;
+      document.getElementById('modalContent').innerHTML = data.content;
+    }
+
+    function closeServiceModal() {
+      const modal = document.getElementById('serviceModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeServiceModal();
+      }
+    });
+  </script>
+
+  <!-- Service Details Modal -->
+  <div id="serviceModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="bg-gradient-to-r from-blue-700 to-blue-900 p-6 md:p-8 flex justify-between items-start">
+        <div>
+          <h2 id="modalTitle" class="text-3xl md:text-4xl font-bold text-white mb-2"></h2>
+          <div class="h-1 w-16 bg-white rounded-full"></div>
+        </div>
+        <button onclick="closeServiceModal()" class="text-white hover:bg-white/20 p-2 rounded-lg transition">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <div id="modalContent" class="p-6 md:p-8 text-slate-700">
+        <!-- Content will be inserted here -->
+      </div>
+      <div class="bg-slate-50 p-6 md:p-8 border-t flex gap-4">
+        <button onclick="closeServiceModal()" class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 rounded-lg transition">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
