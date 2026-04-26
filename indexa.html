@@ -37,6 +37,14 @@
     .carousel-slide.active .animate-text-1 { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
     .carousel-slide.active .animate-text-2 { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
     .carousel-slide.active .animate-text-3 { transition-delay: 0.7s; opacity: 1; transform: translateY(0); }
+
+    /* Mobile text legibility */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 1.5rem !important; line-height: 1.2 !important; }
+      .hero-subtitle { font-size: 1rem !important; }
+      .section-heading { font-size: 1.5rem !important; }
+      .body-text { font-size: 0.95rem !important; line-height: 1.6 !important; }
+    }
   </style>
 </head>
 <body class="min-h-screen bg-slate-50 font-sans text-slate-900 border-t-8 border-blue-700">
@@ -128,25 +136,25 @@
   </div>
 
   <!-- Hero Carousel -->
-  <section class="relative h-[450px] md:h-[600px] overflow-hidden group">
+  <section class="relative h-[450px] md:h-[800px] overflow-hidden group">
     
     <!-- Slide 1 -->
     <div class="carousel-slide active absolute inset-0 opacity-100 scale-100 z-10" id="slide-0">
-      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop')">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('./assets/hero3.jpg')">
         <div class="absolute inset-0 bg-black/50"></div>
       </div>
-      <div class="absolute inset-0 flex items-center justify-center text-center px-6">
-        <div class="max-w-4xl text-white space-y-6">
+      <div class="absolute inset-0 flex items-end justify-center text-center px-4 md:px-6 pb-20 md:pb-28">
+        <div class="max-w-4xl text-white space-y-4 md:space-y-6">
           <div class="animate-text animate-text-1">
-            <h3 class="text-3xl md:text-5xl font-bold leading-tight">तपाईंको लागि आत्मीय स्वास्थ्य सेवा</h3>
-            <h3 class="text-xl md:text-3xl font-bold mt-3 text-blue-100">Compassionate Care for You</h3>
+            <h3 class="hero-title text-2xl sm:text-3xl md:text-5xl font-bold leading-tight">तपाईंको लागि आत्मीय स्वास्थ्य सेवा</h3>
+            <h3 class="hero-subtitle text-lg sm:text-xl md:text-3xl font-bold mt-2 md:mt-3 text-blue-100">Compassionate Care for You</h3>
           </div>
-          <div class="animate-text animate-text-2 text-base md:text-xl text-slate-200 max-w-2xl mx-auto">
+          <div class="animate-text animate-text-2 text-sm sm:text-base md:text-xl text-slate-200 max-w-2xl mx-auto">
             <p>मानवीयता र आत्मीयताका साथ उत्कृष्ट स्वास्थ्य सेवा प्रदान गर्दै।</p>
-            <p class="mt-2">Providing exemplary healthcare services with a human touch.</p>
+            <p class="mt-1 md:mt-2">Providing exemplary healthcare services with a human touch.</p>
           </div>
-          <div class="animate-text animate-text-3 pt-4">
-            <button class="bg-white text-blue-800 px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform active:scale-95">
+          <div class="animate-text animate-text-3 pt-2 md:pt-4">
+            <button class="bg-white text-blue-800 px-6 py-2.5 md:px-8 md:py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform active:scale-95 text-sm md:text-base">
               Explore Our Services
             </button>
           </div>
@@ -156,21 +164,21 @@
 
     <!-- Slide 2 -->
     <div class="carousel-slide absolute inset-0 opacity-0 scale-95 z-0" id="slide-1">
-      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop')">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('./assets/extra1.jpg')">
         <div class="absolute inset-0 bg-black/50"></div>
       </div>
-      <div class="absolute inset-0 flex items-center justify-center text-center px-6">
-        <div class="max-w-4xl text-white space-y-6">
+      <div class="absolute inset-0 flex items-end justify-center text-center px-4 md:px-6 pb-20 md:pb-28">
+        <div class="max-w-4xl text-white space-y-4 md:space-y-6">
           <div class="animate-text animate-text-1">
-            <h3 class="text-3xl md:text-5xl font-bold leading-tight">अत्याधुनिक चिकित्सा सेवा</h3>
-            <h3 class="text-xl md:text-3xl font-bold mt-3 text-blue-100">Advanced Medical Expertise</h3>
+            <h3 class="hero-title text-2xl sm:text-3xl md:text-5xl font-bold leading-tight">अत्याधुनिक चिकित्सा सेवा</h3>
+            <h3 class="hero-subtitle text-lg sm:text-xl md:text-3xl font-bold mt-2 md:mt-3 text-blue-100">Advanced Medical Expertise</h3>
           </div>
-          <div class="animate-text animate-text-2 text-base md:text-xl text-slate-200 max-w-2xl mx-auto">
+          <div class="animate-text animate-text-2 text-sm sm:text-base md:text-xl text-slate-200 max-w-2xl mx-auto">
             <p>नवीनतम प्रविधि र अनुभवी विशेषज्ञ चिकित्सकहरूद्वारा सेवा उपलब्ध।</p>
-            <p class="mt-2">Equipped with the latest technology and specialized medical personnel.</p>
+            <p class="mt-1 md:mt-2">Equipped with the latest technology and specialized medical personnel.</p>
           </div>
-          <div class="animate-text animate-text-3 pt-4">
-            <button class="bg-white text-blue-800 px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform active:scale-95">
+          <div class="animate-text animate-text-3 pt-2 md:pt-4">
+            <button class="bg-white text-blue-800 px-6 py-2.5 md:px-8 md:py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform active:scale-95 text-sm md:text-base">
               Explore Our Services
             </button>
           </div>
@@ -180,21 +188,21 @@
 
     <!-- Slide 3 -->
     <div class="carousel-slide absolute inset-0 opacity-0 scale-95 z-0" id="slide-2">
-      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop')">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('./assets/hero1.jpg'); background-position: center 60%;">
         <div class="absolute inset-0 bg-black/50"></div>
       </div>
-      <div class="absolute inset-0 flex items-center justify-center text-center px-6">
-        <div class="max-w-4xl text-white space-y-6">
+      <div class="absolute inset-0 flex items-end justify-center text-center px-4 md:px-6 pb-20 md:pb-28">
+        <div class="max-w-4xl text-white space-y-4 md:space-y-6">
           <div class="animate-text animate-text-1">
-            <h3 class="text-3xl md:text-5xl font-bold leading-tight">शैक्षिक स्वास्थ्य कार्यक्रम</h3>
-            <h3 class="text-xl md:text-3xl font-bold mt-3 text-blue-100">Educational Health Programs</h3>
+            <h3 class="hero-title text-2xl sm:text-3xl md:text-5xl font-bold leading-tight">शैक्षिक स्वास्थ्य कार्यक्रम</h3>
+            <h3 class="hero-subtitle text-lg sm:text-xl md:text-3xl font-bold mt-2 md:mt-3 text-blue-100">Educational Health Programs</h3>
           </div>
-          <div class="animate-text animate-text-2 text-base md:text-xl text-slate-200 max-w-2xl mx-auto">
+          <div class="animate-text animate-text-2 text-sm sm:text-base md:text-xl text-slate-200 max-w-2xl mx-auto">
             <p>विद्यार्थीहरूको स्वास्थ्य र सुनौलो भविष्यको सुनिश्चितता।</p>
-            <p class="mt-2">Securing the health and future of our students.</p>
+            <p class="mt-1 md:mt-2">Securing the health and future of our students.</p>
           </div>
-          <div class="animate-text animate-text-3 pt-4">
-            <button class="bg-white text-blue-800 px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform active:scale-95">
+          <div class="animate-text animate-text-3 pt-2 md:pt-4">
+            <button class="bg-white text-blue-800 px-6 py-2.5 md:px-8 md:py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform active:scale-95 text-sm md:text-base">
               Explore Our Services
             </button>
           </div>
@@ -229,22 +237,15 @@
               <div class="bg-blue-100 text-blue-700 p-3 rounded-full">
                 <i data-lucide="info" class="w-6 h-6"></i>
               </div>
-              <h3 class="text-2xl md:text-3xl font-bold text-blue-800">Introduction</h3>
+              <h3 class="text-xl md:text-3xl font-bold text-blue-800">Introduction</h3>
             </div>
-            <div class="border-l-4 border-blue-700 pl-6 space-y-3">
-              <h2 class="text-xl md:text-2xl font-bold text-slate-800 leading-tight">
+            <div class="border-l-4 border-blue-700 pl-4 md:pl-6 space-y-3">
+              <h2 class="text-lg md:text-2xl font-bold text-slate-800 leading-tight">
                 Your Trusted Healthcare Partner in Kathmandu
               </h2>
-              <p class="text-slate-600 leading-relaxed text-sm md:text-2xl">
-                
-                
-            All Nepal Health Treatment Clinic Pvt. Ltd. is a team of specialized professionals delivering efficient clinical, administrative, and operational healthcare services.
-
-We provide preventive, diagnostic, therapeutic, and palliative care using modern technology and evidence-based practices to ensure high-quality client care.
+              <p class="body-text text-slate-600 leading-relaxed text-sm md:text-lg">
+                All Nepal Health Treatment Clinic Pvt. Ltd. is a team of specialized professionals delivering efficient clinical, administrative, and operational healthcare services. We provide preventive, diagnostic, therapeutic, and palliative care using modern technology and evidence-based practices to ensure high-quality client care.
               </p>
-              <!-- <p class="text-slate-600 leading-relaxed text-sm md:text-2xl">
-                We provide preventive, diagnostic, therapeutic and palliative services. Our facilities are equipped with the latest technologies, and we use evidence-based practices to ensure that our clients receive the best care possible.
-              </p> -->
             </div>
           </div>
 
@@ -255,7 +256,7 @@ We provide preventive, diagnostic, therapeutic, and palliative care using modern
                 <i data-lucide="users" class="w-5 h-5"></i>
               </div>
               <div>
-                <div class="font-bold text-slate-800 text-sm md:text-2xl">Expert Doctors</div>
+                <div class="font-bold text-slate-800 text-sm md:text-lg">Expert Doctors</div>
                 <div class="text-xs text-slate-500">Qualified medical team</div>
               </div>
             </div>
@@ -264,7 +265,7 @@ We provide preventive, diagnostic, therapeutic, and palliative care using modern
                 <i data-lucide="heart-pulse" class="w-5 h-5"></i>
               </div>
               <div>
-                <div class="font-bold text-slate-800 text-sm md:text-2xl">Holistic Care</div>
+                <div class="font-bold text-slate-800 text-sm md:text-lg">Holistic Care</div>
                 <div class="text-xs text-slate-500">Care and Compassion</div>
               </div>
             </div>
@@ -274,7 +275,7 @@ We provide preventive, diagnostic, therapeutic, and palliative care using modern
         <div class="relative px-4 md:px-0">
           <div class="bg-blue-200 absolute -inset-2 md:-inset-4 rounded-2xl -rotate-2 z-0"></div>
           <img 
-            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop" 
+            src="./assets/team.jpg" 
             alt="Medical Team" 
             class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-[400px] md:h-[500px]"
             referrerpolicy="no-referrer"
@@ -295,13 +296,13 @@ We provide preventive, diagnostic, therapeutic, and palliative care using modern
               <div class="bg-red-100 text-red-700 p-3 rounded-full">
                 <i data-lucide="target" class="w-6 h-6"></i>
               </div>
-              <h3 class="text-2xl md:text-3xl font-bold text-red-700">Mission</h3>
+              <h3 class="text-xl md:text-3xl font-bold text-red-700">Mission</h3>
             </div>
-            <div class="border-l-4 border-red-700 pl-6 space-y-3">
-              <p class="text-slate-600 leading-relaxed text-sm md:text-2xl">
+            <div class="border-l-4 border-red-700 pl-4 md:pl-6 space-y-3">
+              <p class="body-text text-slate-600 leading-relaxed text-sm md:text-lg">
                 To provide hope, care, and cure for its compassionate, accessible, high-quality, cost-effective healthcare to all.
               </p>
-              <ul class="space-y-2 text-slate-600 text-sm md:text-2xl">
+              <ul class="space-y-2 text-slate-600 text-sm md:text-lg">
                 <li class="flex items-start gap-3">
                   <span class="text-red-700 font-bold mt-1">•</span>
                   <span>To serve with patients oriented work towards a patient centered care.</span>
@@ -314,7 +315,7 @@ We provide preventive, diagnostic, therapeutic, and palliative care using modern
         <div class="relative px-4 md:px-0">
           <div class="bg-red-200 absolute -inset-2 md:-inset-4 rounded-2xl -rotate-2 z-0"></div>
           <img 
-            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2080&auto=format&fit=crop" 
+            src="./assets/mission.jpg" 
             alt="Mission" 
             class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-[400px] md:h-[500px]"
             referrerpolicy="no-referrer"
@@ -335,13 +336,13 @@ We provide preventive, diagnostic, therapeutic, and palliative care using modern
               <div class="bg-blue-100 text-blue-700 p-3 rounded-full">
                 <i data-lucide="eye" class="w-6 h-6"></i>
               </div>
-              <h3 class="text-2xl md:text-3xl font-bold text-blue-700">Vision</h3>
+              <h3 class="text-xl md:text-3xl font-bold text-blue-700">Vision</h3>
             </div>
-            <div class="border-l-4 border-blue-700 pl-6 space-y-3">
-              <p class="text-slate-600 leading-relaxed text-sm md:text-2xl">
+            <div class="border-l-4 border-blue-700 pl-4 md:pl-6 space-y-3">
+              <p class="body-text text-slate-600 leading-relaxed text-sm md:text-lg">
                 Compassionate care, exemplary services to all at any time.
               </p>
-              <ul class="space-y-2 text-slate-600 text-sm md:text-2xl">
+              <ul class="space-y-2 text-slate-600 text-sm md:text-lg">
                 <li class="flex items-start gap-3">
                   <span class="text-blue-700 font-bold mt-1">•</span>
                   <span>Our Vision reflects our desire to provide leading practices in health care in modern, well equipped facilities.</span>
@@ -362,7 +363,7 @@ We provide preventive, diagnostic, therapeutic, and palliative care using modern
         <div class="relative px-4 md:px-0">
           <div class="bg-blue-200 absolute -inset-2 md:-inset-4 rounded-2xl -rotate-2 z-0"></div>
           <img 
-            src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2080&auto=format&fit=crop" 
+            src="./assets/extra4.jpg" 
             alt="Vision" 
             class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-[400px] md:h-[500px]"
             referrerpolicy="no-referrer"
@@ -377,77 +378,73 @@ We provide preventive, diagnostic, therapeutic, and palliative care using modern
     <div class="max-w-7xl mx-auto">
       
       <!-- Stats Section -->
-      <div class="mb-16 md:mb-20 grid grid-cols-2 gap-6 md:gap-8 max-w-2xl">
-        <div class="border-l-4 border-blue-700 pl-4 space-y-1 md:space-y-2">
-          <h4 class="text-lg md:text-xl font-bold text-slate-800 uppercase tracking-wider italic">शाखाहरू / Branches:</h4>
-          <p class="text-3xl md:text-4xl font-black text-blue-700">12+</p>
+      <div class="mb-12 md:mb-20 grid grid-cols-2 gap-4 md:gap-8 max-w-2xl">
+        <div class="border-l-4 border-blue-700 pl-3 md:pl-4 space-y-1 md:space-y-2">
+          <h4 class="text-sm md:text-xl font-bold text-slate-800 uppercase tracking-wider italic">शाखाहरू / Branches:</h4>
+          <p class="text-2xl md:text-4xl font-black text-blue-700">12+</p>
           <p class="text-[10px] md:text-xs text-slate-500 uppercase font-bold tracking-widest">Clinics & Departments</p>
         </div>
-        <div class="border-l-4 border-blue-700 pl-4 space-y-1 md:space-y-2">
-          <h4 class="text-lg md:text-xl font-bold text-slate-800 uppercase tracking-wider italic">सेवाग्राही / Patients:</h4>
-          <p class="text-3xl md:text-4xl font-black text-blue-700">50,000+</p>
+        <div class="border-l-4 border-blue-700 pl-3 md:pl-4 space-y-1 md:space-y-2">
+          <h4 class="text-sm md:text-xl font-bold text-slate-800 uppercase tracking-wider italic">सेवाग्राही / Patients:</h4>
+          <p class="text-2xl md:text-4xl font-black text-blue-700">50,000+</p>
           <p class="text-[10px] md:text-xs text-slate-500 uppercase font-bold tracking-widest">Satisfied Individuals</p>
         </div>
       </div>
 
-      <div class="text-center space-y-4 mb-12 md:mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-slate-800 tracking-tight">Our Services</h2>
+      <div class="text-center space-y-4 mb-10 md:mb-16">
+        <h2 class="section-heading text-2xl md:text-4xl font-bold text-slate-800 tracking-tight">Our Services</h2>
         <div class="w-20 md:w-24 h-1 bg-blue-700 mx-auto rounded-full"></div>
-        <p class="text-slate-600 max-w-2xl mx-auto text-sm md:text-2xl px-4">
+        <p class="body-text text-slate-600 max-w-2xl mx-auto text-sm md:text-lg px-4">
           We offer a wide range of medical and mental health resources, educational and preventative programs.
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
 
-         <div onclick="openServiceModal('educational')" class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 transition-all h-full flex flex-col items-center text-center space-y-4 duration-300 group cursor-pointer">
-          <div class="bg-blue-100 text-blue-700 p-4 rounded-xl group-hover:bg-blue-700 group-hover:text-white transition-colors">
-            <i data-lucide="school" class="w-8 h-8"></i>
+         <div onclick="openServiceModal('educational')" class="bg-slate-50 p-4 md:p-8 rounded-2xl border border-slate-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 transition-all h-full flex flex-col items-center text-center space-y-3 md:space-y-4 duration-300 group cursor-pointer">
+          <div class="bg-blue-100 p-5 md:p-6 rounded-2xl group-hover:bg-blue-700 transition-colors">
+            <i data-lucide="graduation-cap" class="w-20 h-20 md:w-36 md:h-36 text-blue-700 group-hover:text-white transition-colors stroke-[1.2]"></i>
           </div>
-          <h3 class="text-xl font-bold text-slate-800">
-            <br/>
+          <h3 class="text-base md:text-xl font-bold text-slate-800">
             <span class="text-sm md:text-2xl text-blue-700 font-semibold mt-1 block">Educational Health</span>
           </h3>
-          <p class="text-slate-500 text-lg leading-relaxed">
+          <p class="text-slate-500 text-sm md:text-lg leading-relaxed">
             Securing the future of students through dedicated health screenings.
           </p>
         </div>
 
-         <div onclick="openServiceModal('homecare')" class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 transition-all h-full flex flex-col items-center text-center space-y-4 duration-300 group cursor-pointer">
-          <div class="bg-blue-100 text-blue-700 p-4 rounded-xl group-hover:bg-blue-700 group-hover:text-white transition-colors">
-            <i data-lucide="home" class="w-8 h-8"></i>
+         <div onclick="openServiceModal('homecare')" class="bg-slate-50 p-4 md:p-8 rounded-2xl border border-slate-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 transition-all h-full flex flex-col items-center text-center space-y-3 md:space-y-4 duration-300 group cursor-pointer">
+          <div class="bg-blue-100 p-5 md:p-6 rounded-2xl group-hover:bg-blue-700 transition-colors">
+            <i data-lucide="home" class="w-20 h-20 md:w-36 md:h-36 text-blue-700 group-hover:text-white transition-colors stroke-[1.2]"></i>
           </div>
-          <h3 class="text-xl font-bold text-slate-800">
-           <br/>
+          <h3 class="text-base md:text-xl font-bold text-slate-800">
             <span class="text-sm md:text-2xl text-blue-700 font-semibold mt-1 block">Home Care Service</span>
           </h3>
-          <p class="text-slate-500 text-lg leading-relaxed">
+          <p class="text-slate-500 text-sm md:text-lg leading-relaxed">
             Professional support services allowing persons to live safely in their home.
           </p>
         </div>
 
-        <div onclick="openServiceModal('community')" class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 transition-all h-full flex flex-col items-center text-center space-y-4 duration-300 group cursor-pointer">
-          <div class="bg-blue-100 text-blue-700 p-4 rounded-xl group-hover:bg-blue-700 group-hover:text-white transition-colors">
-            <i data-lucide="building-2" class="w-8 h-8"></i>
+        <div onclick="openServiceModal('community')" class="bg-slate-50 p-4 md:p-8 rounded-2xl border border-slate-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 transition-all h-full flex flex-col items-center text-center space-y-3 md:space-y-4 duration-300 group cursor-pointer">
+          <div class="bg-blue-100 p-5 md:p-6 rounded-2xl group-hover:bg-blue-700 transition-colors">
+            <i data-lucide="heart-handshake" class="w-20 h-20 md:w-36 md:h-36 text-blue-700 group-hover:text-white transition-colors stroke-[1.2]"></i>
           </div>
-          <h3 class="text-xl font-bold text-slate-800">
-            <br/>
+          <h3 class="text-base md:text-xl font-bold text-slate-800">
             <span class="text-sm md:text-2xl text-blue-700 font-semibold mt-1 block">Community Health Care</span>
           </h3>
-          <p class="text-slate-500 text-lg leading-relaxed">
+          <p class="text-slate-500 text-sm md:text-lg leading-relaxed">
             Focusing on overall health characteristics of the local demography.
           </p>
         </div>
         
-        <div onclick="openServiceModal('corporate')" class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 transition-all h-full flex flex-col items-center text-center space-y-4 duration-300 group cursor-pointer">
-          <div class="bg-blue-100 text-blue-700 p-4 rounded-xl group-hover:bg-blue-700 group-hover:text-white transition-colors">
-            <i data-lucide="activity" class="w-8 h-8"></i>
+        <div onclick="openServiceModal('corporate')" class="bg-slate-50 p-4 md:p-8 rounded-2xl border border-slate-100 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 transition-all h-full flex flex-col items-center text-center space-y-3 md:space-y-4 duration-300 group cursor-pointer">
+          <div class="bg-blue-100 p-5 md:p-6 rounded-2xl group-hover:bg-blue-700 transition-colors">
+            <i data-lucide="building-2" class="w-20 h-20 md:w-36 md:h-36 text-blue-700 group-hover:text-white transition-colors stroke-[1.2]"></i>
           </div>
-          <h3 class="text-xl font-bold text-slate-800">
-           <br/>
+          <h3 class="text-base md:text-xl font-bold text-slate-800">
             <span class="text-sm md:text-2xl text-blue-700 font-semibold mt-1 block">Corporate Health Care</span>
           </h3>
-          <p class="text-slate-500 text-lg leading-relaxed">
+          <p class="text-slate-500 text-sm md:text-lg leading-relaxed">
             Improving medical status and well-being of employees in corporate environments.
           </p>
         </div>
@@ -530,17 +527,17 @@ We provide preventive, diagnostic, therapeutic, and palliative care using modern
 
   <!-- Specialist Services Preview -->
   <section class="py-20 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
-    <div class="text-center mb-12 md:mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Why choose us? / हामीलाई किन रोज्ने?</h2>
+    <div class="text-center mb-10 md:mb-16">
+      <h2 class="section-heading text-2xl md:text-4xl font-bold text-slate-800">Why choose us?</h2>
       <div class="w-16 h-1 bg-blue-700 mx-auto mt-4 rounded-full"></div>
     </div>
 
     <!-- Why Choose Us Image & Benefits -->
-    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:mb-16">
       <!-- Image -->
       <div class="flex justify-center order-2 md:order-1">
         <img 
-          src="./assets/whyChooseUs.png" 
+          src="./assets/whychooseus.jpg" 
           alt="Why Choose Us" 
           class="rounded-2xl shadow-xl max-w-lg w-full object-cover"
           referrerpolicy="no-referrer"
@@ -548,34 +545,37 @@ We provide preventive, diagnostic, therapeutic, and palliative care using modern
       </div>
       
       <!-- Benefits Text -->
-      <div class="order-1 md:order-2 space-y-4">
-        <h3 class="text-2xl md:text-3xl font-bold text-slate-800 mb-6">Our Commitment to Excellence</h3>
-        <ul class="space-y-4">
-          <li class="flex items-start gap-3">
-            <div class="bg-blue-700 text-white p-2 rounded-lg flex-shrink-0 mt-1">
-              <i data-lucide="check" class="w-5 h-5"></i>
+      <div class="order-1 md:order-2 space-y-6 md:space-y-8">
+        <div class="border-l-4 border-blue-700 pl-4 md:pl-6">
+          <h3 class="text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight">Our Commitment<br class="hidden md:block" /> to Excellence</h3>
+          <div class="w-16 h-1 bg-blue-700 rounded-full mt-3"></div>
+        </div>
+        <ul class="space-y-5 md:space-y-6">
+          <li class="flex items-start gap-4 md:gap-5 group">
+            <div class="bg-blue-700 text-white p-3 rounded-2xl flex-shrink-0 shadow-lg shadow-blue-700/25 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="check" class="w-6 h-6 md:w-7 md:h-7"></i>
             </div>
-            <div>
-              <h4 class="font-bold text-slate-800">Exceptional Quality Care</h4>
-              <p class="text-slate-600 text-sm">Top-notch medical services with modern facilities</p>
-            </div>
-          </li>
-          <li class="flex items-start gap-3">
-            <div class="bg-blue-700 text-white p-2 rounded-lg flex-shrink-0 mt-1">
-              <i data-lucide="check" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-slate-800">Highly Qualified Team</h4>
-              <p class="text-slate-600 text-sm">Experienced doctors and healthcare professionals</p>
+            <div class="pt-1">
+              <h4 class="font-bold text-slate-900 text-lg md:text-xl lg:text-2xl leading-tight">Exceptional Quality Care</h4>
+              <p class="text-slate-600 text-sm md:text-base lg:text-lg mt-1 md:mt-2 leading-relaxed">Top-notch medical services with modern facilities and cutting-edge technology.</p>
             </div>
           </li>
-          <li class="flex items-start gap-3">
-            <div class="bg-blue-700 text-white p-2 rounded-lg flex-shrink-0 mt-1">
-              <i data-lucide="check" class="w-5 h-5"></i>
+          <li class="flex items-start gap-4 md:gap-5 group">
+            <div class="bg-blue-700 text-white p-3 rounded-2xl flex-shrink-0 shadow-lg shadow-blue-700/25 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="check" class="w-6 h-6 md:w-7 md:h-7"></i>
             </div>
-            <div>
-              <h4 class="font-bold text-slate-800">Affordable & Accessible</h4>
-              <p class="text-slate-600 text-sm">Cost-effective healthcare for everyone</p>
+            <div class="pt-1">
+              <h4 class="font-bold text-slate-900 text-lg md:text-xl lg:text-2xl leading-tight">Highly Qualified Team</h4>
+              <p class="text-slate-600 text-sm md:text-base lg:text-lg mt-1 md:mt-2 leading-relaxed">Experienced doctors and healthcare professionals dedicated to your well-being.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-4 md:gap-5 group">
+            <div class="bg-blue-700 text-white p-3 rounded-2xl flex-shrink-0 shadow-lg shadow-blue-700/25 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="check" class="w-6 h-6 md:w-7 md:h-7"></i>
+            </div>
+            <div class="pt-1">
+              <h4 class="font-bold text-slate-900 text-lg md:text-xl lg:text-2xl leading-tight">Affordable & Accessible</h4>
+              <p class="text-slate-600 text-sm md:text-base lg:text-lg mt-1 md:mt-2 leading-relaxed">Cost-effective healthcare solutions designed to be within everyone's reach.</p>
             </div>
           </li>
         </ul>
@@ -637,96 +637,97 @@ We provide preventive, diagnostic, therapeutic, and palliative care using modern
   <!-- Leadership Team Section -->
   <section class="py-16 md:py-20 bg-slate-50 px-4 md:px-8">
     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Our Leadership Team</h2>
+      <div class="text-center mb-10 md:mb-16">
+        <h2 class="section-heading text-2xl md:text-4xl font-bold text-slate-800">Our Leadership Team</h2>
         <div class="w-20 h-1 bg-blue-700 mx-auto mt-4 rounded-full"></div>
-        <p class="text-slate-600 max-w-2xl mx-auto text-sm md:text-2xl mt-4 px-4">
+        <p class="body-text text-slate-600 max-w-2xl mx-auto text-sm md:text-lg mt-4 px-4">
           Meet the dedicated leaders behind All Nepal Health Treatment Clinic
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-6xl mx-auto">
+        <!-- Chairman -->
+        <div class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
+          <div class="relative h-80 overflow-hidden">
+            <img
+              src="./assets/peoples/chairManGhanashyamPandey.jpg"
+              alt="Ghanashyam Pandey"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <h3 class="text-white font-bold text-2xl tracking-tight drop-shadow-lg">Ghanashyam Pandey</h3>
+              <div class="w-12 h-0.5 bg-blue-400 mt-2 rounded-full"></div>
+              <p class="text-white/90 text-sm font-semibold uppercase tracking-widest mt-2">Chairman</p>
+            </div>
+          </div>
+        </div>
+
         <!-- CEO -->
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-          <div class="relative h-64 overflow-hidden">
+        <div class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
+          <div class="relative h-80 overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop"
-              alt="CEO"
-              class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              src="./assets/peoples/CEOSumanPandey.jpg"
+              alt="Suman Pandey"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent"></div>
-            <div class="absolute bottom-4 left-4 right-4">
-              <h3 class="text-white font-bold text-xl">Dr. Ram Bahadur Thapa</h3>
-              <p class="text-blue-200 text-sm">Chief Executive Officer</p>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <h3 class="text-white font-bold text-2xl tracking-tight drop-shadow-lg">Suman Pandey</h3>
+              <div class="w-12 h-0.5 bg-blue-400 mt-2 rounded-full"></div>
+              <p class="text-white/90 text-sm font-semibold uppercase tracking-widest mt-2">CEO</p>
             </div>
-          </div>
-          <div class="p-6 text-center">
-            <!-- <p class="text-slate-600 text-sm leading-relaxed">
-              With over 25 years of experience in healthcare management and clinical practice.
-            </p> -->
           </div>
         </div>
 
-        <!-- Director -->
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-          <div class="relative h-64 overflow-hidden">
+        <!-- Medical Head -->
+        <div class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
+          <div class="relative h-80 overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop"
-              alt="Director"
-              class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              src="./assets/peoples/MedicalHeadDrPrashantBashyal.jpg"
+              alt="Dr. Prashant Bashyal"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent"></div>
-            <div class="absolute bottom-4 left-4 right-4">
-              <h3 class="text-white font-bold text-xl">Sita Devi Shrestha</h3>
-              <p class="text-blue-200 text-sm">Director</p>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <h3 class="text-white font-bold text-2xl tracking-tight drop-shadow-lg">Dr. Prashant Bashyal</h3>
+              <div class="w-12 h-0.5 bg-blue-400 mt-2 rounded-full"></div>
+              <p class="text-white/90 text-sm font-semibold uppercase tracking-widest mt-2">Medical Head</p>
             </div>
-          </div>
-          <div class="p-6 text-center">
-            <!-- <p class="text-slate-600 text-sm leading-relaxed">
-              Leading our vision for accessible healthcare across all regions of Nepal.
-            </p> -->
           </div>
         </div>
 
-        <!-- Medical Director -->
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-          <div class="relative h-64 overflow-hidden">
+        <!-- Dr Medha Osti -->
+        <div class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
+          <div class="relative h-80 overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format&fit=crop"
-              alt="Medical Director"
-              class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              src="./assets/peoples/DrMedhaOsti.jpg"
+              alt="Dr. Medha Osti"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent"></div>
-            <div class="absolute bottom-4 left-4 right-4">
-              <h3 class="text-white font-bold text-xl">Dr. Hari Prasad Sharma</h3>
-              <p class="text-blue-200 text-sm">Medical Director</p>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <h3 class="text-white font-bold text-2xl tracking-tight drop-shadow-lg">Dr. Medha Osti</h3>
+              <div class="w-12 h-0.5 bg-blue-400 mt-2 rounded-full"></div>
+              <p class="text-white/90 text-sm font-semibold uppercase tracking-widest mt-2">DENTAL HEAD</p>
             </div>
-          </div>
-          <div class="p-6 text-center">
-            <!-- <p class="text-slate-600 text-sm leading-relaxed">
-              Ensuring the highest standards of medical care and patient safety.
-            </p> -->
           </div>
         </div>
 
-        <!-- Operations Manager -->
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-          <div class="relative h-64 overflow-hidden">
+        <!-- CTO -->
+        <div class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
+          <div class="relative h-80 overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop"
-              alt="Operations Manager"
-              class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              src="./assets/peoples/CTONishanPoudel.jpeg"
+              alt="Nishan Poudel"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent"></div>
-            <div class="absolute bottom-4 left-4 right-4">
-              <h3 class="text-white font-bold text-xl">Bikash Thapa</h3>
-              <p class="text-blue-200 text-sm">Operations Manager</p>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <h3 class="text-white font-bold text-2xl tracking-tight drop-shadow-lg">Er. Nishan Poudel</h3>
+              <div class="w-12 h-0.5 bg-blue-400 mt-2 rounded-full"></div>
+              <p class="text-white/90 text-sm font-semibold uppercase tracking-widest mt-2">CTO</p>
             </div>
-          </div>
-          <div class="p-6 text-center">
-            <!-- <p class="text-slate-600 text-sm leading-relaxed">
-              Overseeing daily operations and ensuring efficient clinic management.
-            </p> -->
           </div>
         </div>
       </div>
@@ -734,64 +735,70 @@ We provide preventive, diagnostic, therapeutic, and palliative care using modern
   </section>
 
   <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-400 py-16 md:py-20 px-4 md:px-8 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-12">
-      <div class="md:col-span-2 space-y-6">
-         <div class="flex items-center gap-4">
-           <img src="https://i.ibb.co/mVctczJz/Chat-GPT-Image-Apr-15-2026-12-45-18-PM.png" alt="Logo" class="h-14 w-auto brightness-0 invert" referrerpolicy="no-referrer" />
+  <footer class="bg-slate-900 text-slate-400 py-12 md:py-20 px-4 md:px-8 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+      <div class="md:col-span-2 space-y-4 md:space-y-6">
+         <div class="flex items-center gap-3 md:gap-4">
+           <img src="./assets/all_nepal_health_logo_transparent.png" alt="Logo" class="h-12 md:h-14 w-auto brightness-0 invert" referrerpolicy="no-referrer" />
            <div>
-              <h4 class="text-white font-bold text-xl md:text-2xl leading-tight">All Nepal Health</h4>
-              <p class="text-xs uppercase tracking-widest text-blue-400 mt-1">Treatment Clinic</p>
+              <h4 class="text-white font-bold text-lg md:text-2xl leading-tight">All Nepal Health</h4>
+              <p class="text-[10px] md:text-xs uppercase tracking-widest text-blue-400 mt-1">Treatment Clinic</p>
            </div>
          </div>
-         <p class="text-sm leading-relaxed max-w-md text-slate-400">
+         <p class="text-xs md:text-sm leading-relaxed max-w-md text-slate-400">
             Dedicated to providing high-quality, accessible, and cost-effective healthcare services across Nepal. Our network of specialized clinics is committed to your well-being.
          </p>
-         <div class="flex gap-4 pt-2">
-           <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition cursor-pointer">
-              <i data-lucide="facebook" class="w-4 h-4"></i>
-           </div>
-           <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition cursor-pointer">
-              <i data-lucide="instagram" class="w-4 h-4"></i>
-           </div>
-           <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition cursor-pointer">
-              <i data-lucide="twitter" class="w-4 h-4"></i>
-           </div>
+         <div class="flex gap-3 md:gap-4 pt-2">
+           <a href="#" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition cursor-pointer">
+              <img src="https://placehold.co/40x40/3b5998/ffffff?text=F" alt="Facebook" class="w-4 h-4 md:w-5 md:h-5 object-contain">
+           </a>
+           <a href="#" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-pink-600 hover:text-white transition cursor-pointer">
+              <img src="https://placehold.co/40x40/E1306C/ffffff?text=I" alt="Instagram" class="w-4 h-4 md:w-5 md:h-5 object-contain">
+           </a>
+           <a href="#" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-400 hover:text-white transition cursor-pointer">
+              <img src="https://placehold.co/40x40/1DA1F2/ffffff?text=X" alt="Twitter" class="w-4 h-4 md:w-5 md:h-5 object-contain">
+           </a>
+           <a href="#" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-700 hover:text-white transition cursor-pointer">
+              <img src="https://placehold.co/40x40/0A66C2/ffffff?text=In" alt="LinkedIn" class="w-4 h-4 md:w-5 md:h-5 object-contain">
+           </a>
+           <a href="#" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-red-600 hover:text-white transition cursor-pointer">
+              <img src="https://placehold.co/40x40/FF0000/ffffff?text=YT" alt="YouTube" class="w-4 h-4 md:w-5 md:h-5 object-contain">
+           </a>
          </div>
       </div>
       
-      <div class="space-y-6">
-        <h4 class="text-white font-bold uppercase text-sm tracking-widest border-b border-slate-700 pb-3 inline-block">Contact Info</h4>
-        <ul class="space-y-4 text-sm">
+      <div class="space-y-4 md:space-y-6">
+        <h4 class="text-white font-bold uppercase text-xs md:text-sm tracking-widest border-b border-slate-700 pb-3 inline-block">Contact Info</h4>
+        <ul class="space-y-3 md:space-y-4 text-xs md:text-sm">
           <li class="flex items-start gap-3">
-            <i data-lucide="map-pin" class="text-blue-500 shrink-0 w-5 h-5"></i>
-            <span class="leading-relaxed">Nagarjun-01, Raniban,<br/>Kathmandu, Nepal</span>
+            <i data-lucide="map-pin" class="text-blue-500 shrink-0 w-4 h-4 md:w-5 md:h-5"></i>
+            <span class="leading-relaxed">Nagarjun-01, Raniban, Kathmandu</span>
           </li>
           <li class="flex items-start gap-3">
-            <i data-lucide="phone" class="text-blue-500 shrink-0 w-5 h-5"></i>
-            <span class="leading-relaxed">+977-1-4950371<br/>9761647713, 9761647716</span>
+            <i data-lucide="phone" class="text-blue-500 shrink-0 w-4 h-4 md:w-5 md:h-5"></i>
+            <span class="leading-relaxed">9761647713, 9761647716, 01-4950371</span>
           </li>
           <li class="flex items-start gap-3">
-            <i data-lucide="mail" class="text-blue-500 shrink-0 w-5 h-5"></i>
-            <span>allnepalhealth@gmail.com</span>
+            <i data-lucide="mail" class="text-blue-500 shrink-0 w-4 h-4 md:w-5 md:h-5"></i>
+            <span>allnepalhealthtreatmentclinic@gmail.com</span>
           </li>
         </ul>
       </div>
 
-      <div class="space-y-6 text-center md:text-right mt-4 md:mt-0">
-         <div class="bg-blue-900/40 p-6 rounded-2xl border border-blue-500/20 backdrop-blur-sm text-center">
-           <h5 class="text-blue-400 font-bold mb-2 uppercase text-xs tracking-widest flex items-center justify-center gap-2">
+      <div class="space-y-4 md:space-y-6 text-center md:text-right mt-2 md:mt-0">
+         <div class="bg-blue-900/40 p-4 md:p-6 rounded-2xl border border-blue-500/20 backdrop-blur-sm text-center">
+           <h5 class="text-blue-400 font-bold mb-2 uppercase text-[10px] md:text-xs tracking-widest flex items-center justify-center gap-2">
              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
              Emergency 24/7
            </h5>
-           <p class="text-2xl md:text-3xl font-bold text-white mb-4">+977 1 4950371</p>
-           <button class="w-full bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl text-sm font-bold transition shadow-lg">
+           <p class="text-xl md:text-3xl font-bold text-white mb-3 md:mb-4">+01 4950371</p>
+           <button class="w-full bg-blue-600 hover:bg-blue-500 text-white py-2.5 md:py-3 rounded-xl text-xs md:text-sm font-bold transition shadow-lg">
              Get Directions
           </button>
          </div>
          <div class="pt-4 space-y-2">
-           <p class="text-[10px] uppercase text-slate-500 tracking-[0.1em]">© 2026 All Nepal Health Treatment Clinic</p>
-           <p class="text-[10px] uppercase text-slate-500 tracking-[0.1em]">Crafted for Health & Cure</p>
+           <p class="text-[9px] md:text-[10px] uppercase text-slate-500 tracking-[0.1em]">© 2026 All Nepal Health Treatment Clinic</p>
+           <p class="text-[9px] md:text-[10px] uppercase text-slate-500 tracking-[0.1em]">Crafted for Health & Cure</p>
          </div>
       </div>
     </div>
