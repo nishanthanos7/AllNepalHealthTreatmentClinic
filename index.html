@@ -69,55 +69,98 @@
       .hero-subtitle { font-size: 1rem !important; line-height: 1.3 !important; }
       .section-heading { font-size: 1.625rem !important; line-height: 1.2 !important; letter-spacing: -0.015em; }
       .body-text { font-size: 0.95rem !important; line-height: 1.65 !important; }
+
+      /* Slow down marquee on small screens for readability */
+      .animate-marquee { animation-duration: 55s; }
+      .animate-marquee.marquee-long { animation-duration: 65s; }
+
+      /* Reserve room for the sticky bottom CTA bar so footer content isn't covered */
+      body { padding-bottom: 68px; }
+
+      /* Subtle entrance animation on cards */
+      .mobile-fade-up { animation: mFadeUp .6s cubic-bezier(.22,.61,.36,1) both; }
     }
     @media (max-width: 380px) {
       .hero-title { font-size: 1.4rem !important; }
     }
+
+    @keyframes mFadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile sticky bottom action bar */
+    .mobile-cta-bar {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 40;
+      display: none;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, #ffffff 100%);
+      backdrop-filter: saturate(140%) blur(8px);
+      border-top: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 -6px 24px -10px rgba(15, 23, 42, 0.18);
+      padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    }
+    @media (max-width: 768px) {
+      .mobile-cta-bar { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    }
+    .mobile-cta-btn {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 10px 6px; border-radius: 12px;
+      font-weight: 700; font-size: 12px; letter-spacing: 0.02em;
+      transition: transform .15s ease, box-shadow .15s ease, background-color .2s ease;
+    }
+    .mobile-cta-btn:active { transform: scale(0.97); }
+    .mobile-cta-btn.primary { background: #1d4ed8; color: #fff; box-shadow: 0 6px 16px -6px rgba(29,78,216,0.55); }
+    .mobile-cta-btn.danger  { background: #DB3963; color: #fff; box-shadow: 0 6px 16px -6px rgba(219,57,99,0.55); }
+    .mobile-cta-btn.ghost   { background: #f1f5f9; color: #0f172a; }
   </style>
 </head>
 <body class="min-h-screen bg-slate-50 font-sans text-slate-900 border-t-8 border-blue-700">
 
   <!-- Top Contact Bar (Desktop & Mobile) -->
   <div class="bg-white border-b py-2 px-4 md:px-8">
-    <div class="w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-3 text-xs md:text-sm text-slate-600">
-      <div class="flex flex-col md:flex-row gap-2 md:gap-6">
+    <div class="w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-2 md:gap-3 text-[11px] md:text-sm text-slate-600">
+      <div class="flex flex-col md:flex-row gap-1.5 md:gap-6 w-full md:w-auto">
         <div class="flex items-center gap-2">
-          <i data-lucide="map-pin" class="w-4 h-4 text-blue-700"></i>
-          <span>Nagarjun-01, Raniban, Kathmandu</span>
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-700 shrink-0"></i>
+          <span class="truncate">Nagarjun-01, Raniban, Kathmandu</span>
         </div>
-        <div class="flex items-center gap-2">
-          <i data-lucide="phone" class="w-4 h-4 text-blue-700"></i>
-          <span>9761647713, 9761647716, 01-4950371</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <i data-lucide="mail" class="w-4 h-4 text-blue-700"></i>
-          <span>allnepalhealthtreatmentclinic@gmail.com</span>
-        </div>
+        <a href="tel:+97714950371" class="flex items-center gap-2 text-slate-600 md:text-slate-600 active:text-blue-700">
+          <i data-lucide="phone" class="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-700 shrink-0"></i>
+          <span class="truncate">9761647713, 9761647716, 01-4950371</span>
+        </a>
+        <a href="mailto:allnepalhealthtreatmentclinic@gmail.com" class="flex items-center gap-2 text-slate-600 active:text-blue-700">
+          <i data-lucide="mail" class="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-700 shrink-0"></i>
+          <span class="truncate">allnepalhealthtreatmentclinic@gmail.com</span>
+        </a>
       </div>
-      <div class="font-bold text-blue-800 pt-2 md:pt-0 border-t md:border-t-0 border-slate-100 text-right md:text-right">
+      <div class="hidden md:block font-bold text-blue-800 pt-2 md:pt-0 border-t md:border-t-0 border-slate-100 text-right md:text-right">
+        Regd: 306535/079/080
+      </div>
+      <div class="md:hidden font-bold text-blue-800 text-[11px] mt-1 pt-1.5 border-t border-slate-100 w-full">
         Regd: 306535/079/080
       </div>
     </div>
   </div>
 
   <!-- Brand Header -->
-<header class="bg-white pt-0.5 md:pt-1 pb-0 shadow-sm relative z-20">
-  <div class="w-full px-2 md:px-4 lg:px-6">
+<header class="bg-white pt-2 md:pt-1 pb-0 shadow-sm relative z-20">
+  <div class="w-full px-3 md:px-4 lg:px-6">
 
-    <!-- Mobile Only Top Motto & Regd -->
-    <div class="flex md:hidden justify-between items-center text-[11px] mb-2 font-bold">
-      <div class="text-red-600 italic">"Prevention is better than cure"</div>
-      <div class="text-slate-800">Regd: 306535/079/080</div>
+    <!-- Mobile Only Motto Banner -->
+    <div class="flex md:hidden justify-center items-center text-[11px] mb-2.5 font-bold">
+      <div class="text-red-600 italic tracking-wide">"Prevention is better than cure"</div>
     </div>
 
     <!-- Main Header: logo / title / logo flexbox -->
-    <div class="flex items-center justify-center gap-2 md:gap-4 lg:gap-6 pb-3 md:pb-4">
+    <div class="flex items-center justify-center gap-3 md:gap-4 lg:gap-6 pb-3 md:pb-4">
 
       <!-- Left Logo -->
       <img
         src="./assets/all_nepal_health_logo_transparent.png"
         alt="Clinic Logo"
-        class="h-16 md:h-28 lg:h-36 w-auto object-contain shrink-0"
+        class="h-[68px] md:h-28 lg:h-36 w-auto object-contain shrink-0 drop-shadow-sm"
       />
 
       <!-- Center Title Block -->
@@ -125,10 +168,10 @@
         <div class="hidden md:block text-red-600 italic font-semibold text-sm mb-1.5">
           "Prevention is better than cure"
         </div>
-        <h1 class="nepali text-xl md:text-[1.85rem] lg:text-[3.4rem] font-semibold text-blue-800 leading-[1.25] lg:whitespace-nowrap">
+        <h1 class="nepali text-[1.05rem] leading-[1.2] md:text-[1.85rem] md:leading-[1.25] lg:text-[3.4rem] font-bold md:font-semibold text-blue-800 lg:whitespace-nowrap">
           अल नेपाल हेल्थ ट्रिट्मेन्ट क्लिनिक प्रा. लि.
         </h1>
-        <h2 class="text-sm md:text-[1.15rem] lg:text-[2.1rem] leading-tight font-extrabold text-blue-900 uppercase mt-1 md:mt-2 tracking-wide lg:whitespace-nowrap">
+        <h2 class="text-[0.78rem] md:text-[1.15rem] lg:text-[2.1rem] leading-tight font-extrabold text-blue-900 uppercase mt-1 md:mt-2 tracking-[0.04em] md:tracking-wide lg:whitespace-nowrap">
           ALL NEPAL HEALTH <br class="md:hidden" /> TREATMENT CLINIC PVT. LTD.
         </h2>
       </div>
@@ -137,7 +180,7 @@
       <img
         src="./assets/redcross-removebg-preview.png"
         alt="Red Cross"
-        class="h-16 md:h-28 lg:h-36 w-auto object-contain shrink-0"
+        class="h-[68px] md:h-28 lg:h-36 w-auto object-contain shrink-0 drop-shadow-sm"
       />
 
     </div>
@@ -153,7 +196,7 @@
   </div>
 
   <!-- Hero Carousel -->
-  <section class="relative h-[480px] sm:h-[560px] md:h-[680px] lg:h-[800px] overflow-hidden group">
+  <section class="relative h-[420px] sm:h-[560px] md:h-[680px] lg:h-[800px] overflow-hidden group">
 
     <!-- Slide 1 -->
     <div class="carousel-slide active absolute inset-0 opacity-100 scale-100 z-10" id="slide-0">
@@ -264,26 +307,26 @@
     </div>
 
     <!-- Carousel Controls -->
-    <button onclick="prevSlide()" aria-label="Previous slide" class="absolute left-2 sm:left-3 md:left-4 top-1/2 -translate-y-1/2 bg-white/15 hover:bg-white/40 p-2 md:p-3 rounded-full text-white backdrop-blur-sm transition opacity-70 md:opacity-0 group-hover:opacity-100 z-20">
-      <i data-lucide="chevron-left" class="w-5 h-5 md:w-6 md:h-6"></i>
+    <button onclick="prevSlide()" aria-label="Previous slide" class="absolute left-2 sm:left-3 md:left-4 top-1/2 -translate-y-1/2 bg-white/15 hover:bg-white/40 p-2 md:p-3 rounded-full text-white backdrop-blur-sm transition opacity-30 md:opacity-0 group-hover:opacity-100 z-20">
+      <i data-lucide="chevron-left" class="w-4 h-4 md:w-6 md:h-6"></i>
     </button>
-    <button onclick="nextSlide()" aria-label="Next slide" class="absolute right-2 sm:right-3 md:right-4 top-1/2 -translate-y-1/2 bg-white/15 hover:bg-white/40 p-2 md:p-3 rounded-full text-white backdrop-blur-sm transition opacity-70 md:opacity-0 group-hover:opacity-100 z-20">
-      <i data-lucide="chevron-right" class="w-5 h-5 md:w-6 md:h-6"></i>
+    <button onclick="nextSlide()" aria-label="Next slide" class="absolute right-2 sm:right-3 md:right-4 top-1/2 -translate-y-1/2 bg-white/15 hover:bg-white/40 p-2 md:p-3 rounded-full text-white backdrop-blur-sm transition opacity-30 md:opacity-0 group-hover:opacity-100 z-20">
+      <i data-lucide="chevron-right" class="w-4 h-4 md:w-6 md:h-6"></i>
     </button>
 
     <!-- Carousel Dots -->
-    <div class="absolute bottom-5 md:bottom-7 left-1/2 -translate-x-1/2 flex gap-2.5 md:gap-3 z-20" id="carousel-dots">
-      <button onclick="setSlide(0)" aria-label="Go to slide 1" class="carousel-dot w-8 h-2.5 rounded-full transition-all bg-white"></button>
-      <button onclick="setSlide(1)" aria-label="Go to slide 2" class="carousel-dot w-2.5 h-2.5 rounded-full transition-all bg-white/40"></button>
-      <button onclick="setSlide(2)" aria-label="Go to slide 3" class="carousel-dot w-2.5 h-2.5 rounded-full transition-all bg-white/40"></button>
+    <div class="absolute bottom-4 md:bottom-7 left-1/2 -translate-x-1/2 flex gap-2 md:gap-3 z-20" id="carousel-dots">
+      <button onclick="setSlide(0)" aria-label="Go to slide 1" class="carousel-dot w-7 md:w-8 h-2 md:h-2.5 rounded-full transition-all bg-white"></button>
+      <button onclick="setSlide(1)" aria-label="Go to slide 2" class="carousel-dot w-2 md:w-2.5 h-2 md:h-2.5 rounded-full transition-all bg-white/40"></button>
+      <button onclick="setSlide(2)" aria-label="Go to slide 3" class="carousel-dot w-2 md:w-2.5 h-2 md:h-2.5 rounded-full transition-all bg-white/40"></button>
     </div>
   </section>
 
   <!-- Intro Section -->
-  <section class="py-16 md:py-24 px-4 md:px-8 bg-white">
+  <section class="py-12 md:py-24 px-4 md:px-8 bg-white">
     <div class="max-w-7xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-        <div class="space-y-6">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+        <div class="space-y-5 md:space-y-6">
           <!-- Introduction Header -->
           <div class="space-y-4">
             <div class="flex items-center gap-3">
@@ -330,12 +373,12 @@
           </div>
         </div>
 
-        <div class="relative px-4 md:px-0">
-          <div class="bg-blue-200 absolute -inset-2 md:-inset-4 rounded-2xl -rotate-2 z-0"></div>
-          <img 
-            src="./assets/team.jpg" 
-            alt="Medical Team" 
-            class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-[400px] md:h-[500px]"
+        <div class="relative px-2 md:px-0">
+          <div class="bg-blue-200 absolute -inset-1.5 md:-inset-4 rounded-2xl -rotate-2 z-0"></div>
+          <img
+            src="./assets/team.jpg"
+            alt="Medical Team"
+            class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-[260px] md:h-[500px]"
             referrerpolicy="no-referrer"
           />
         </div>
@@ -344,9 +387,9 @@
   </section>
 
   <!-- Mission Section -->
-  <section class="py-16 md:py-24 px-4 md:px-8 bg-white">
+  <section class="py-12 md:py-24 px-4 md:px-8 bg-white">
     <div class="max-w-7xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
         <div class="space-y-6">
           <!-- Mission Header -->
           <div class="space-y-4">
@@ -371,12 +414,12 @@
           </div>
         </div>
 
-        <div class="relative px-4 md:px-0">
-          <div class="bg-red-200 absolute -inset-2 md:-inset-4 rounded-2xl -rotate-2 z-0"></div>
-          <img 
-            src="./assets/mission.jpg" 
-            alt="Mission" 
-            class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-[400px] md:h-[500px]"
+        <div class="relative px-2 md:px-0">
+          <div class="bg-red-200 absolute -inset-1.5 md:-inset-4 rounded-2xl -rotate-2 z-0"></div>
+          <img
+            src="./assets/mission.jpg"
+            alt="Mission"
+            class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-[260px] md:h-[500px]"
             referrerpolicy="no-referrer"
           />
         </div>
@@ -385,10 +428,10 @@
   </section>
 
   <!-- Vision Section -->
-  <section class="py-16 md:py-24 px-4 md:px-8 bg-slate-50">
+  <section class="py-12 md:py-24 px-4 md:px-8 bg-slate-50">
     <div class="max-w-7xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-        <div class="space-y-6">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+        <div class="space-y-5 md:space-y-6">
           <!-- Vision Header -->
           <div class="space-y-4">
             <div class="flex items-center gap-3">
@@ -420,12 +463,12 @@
           </div>
         </div>
 
-        <div class="relative px-4 md:px-0">
-          <div class="bg-blue-200 absolute -inset-2 md:-inset-4 rounded-2xl -rotate-2 z-0"></div>
-          <img 
-            src="./assets/extra4.jpg" 
-            alt="Vision" 
-            class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-[400px] md:h-[500px]"
+        <div class="relative px-2 md:px-0">
+          <div class="bg-blue-200 absolute -inset-1.5 md:-inset-4 rounded-2xl -rotate-2 z-0"></div>
+          <img
+            src="./assets/extra4.jpg"
+            alt="Vision"
+            class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-[260px] md:h-[500px]"
             referrerpolicy="no-referrer"
           />
         </div>
@@ -434,77 +477,74 @@
   </section>
 
   <!-- Services Grid -->
-  <section class="py-20 md:py-24 bg-white px-4 md:px-8">
+  <section class="py-12 md:py-24 bg-white px-4 md:px-8">
     <div class="max-w-7xl mx-auto">
       
       <!-- Stats Section -->
-      <div class="mb-12 md:mb-20 grid grid-cols-2 gap-4 md:gap-8 max-w-2xl">
+      <div class="mb-10 md:mb-20 grid grid-cols-2 gap-3 md:gap-8 max-w-2xl mx-auto md:mx-0">
         <div class="border-l-4 border-blue-700 pl-3 md:pl-4 space-y-1 md:space-y-2">
-          <h4 class="text-sm md:text-xl font-bold text-slate-800 uppercase tracking-wider italic">Branches:</h4>
+          <h4 class="text-xs md:text-xl font-bold text-slate-800 uppercase tracking-wider italic">Branches:</h4>
           <p class="text-2xl md:text-4xl font-black text-blue-700">12+</p>
           <p class="text-[10px] md:text-xs text-slate-500 uppercase font-bold tracking-widest">Clinics & Departments</p>
         </div>
         <div class="border-l-4 border-blue-700 pl-3 md:pl-4 space-y-1 md:space-y-2">
-          <h4 class="text-sm md:text-xl font-bold text-slate-800 uppercase tracking-wider italic">Patients:</h4>
+          <h4 class="text-xs md:text-xl font-bold text-slate-800 uppercase tracking-wider italic">Patients:</h4>
           <p class="text-2xl md:text-4xl font-black text-blue-700">50,000+</p>
           <p class="text-[10px] md:text-xs text-slate-500 uppercase font-bold tracking-widest">Satisfied Individuals</p>
         </div>
       </div>
 
-      <div class="text-center mb-10 md:mb-16">
-        <span class="inline-block text-blue-700 font-semibold tracking-[0.2em] uppercase text-xs md:text-sm mb-3">What We Offer</span>
+      <div class="text-center mb-8 md:mb-16">
+        <span class="inline-block text-blue-700 font-semibold tracking-[0.2em] uppercase text-[11px] md:text-sm mb-2 md:mb-3">What We Offer</span>
         <h2 class="section-heading text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">Our Services</h2>
-        <div class="w-16 md:w-20 h-1 bg-blue-700 mx-auto rounded-full mt-4 mb-5"></div>
-        <p class="body-text text-slate-600 max-w-2xl mx-auto text-base md:text-lg px-4 leading-relaxed">
+        <div class="w-14 md:w-20 h-1 bg-blue-700 mx-auto rounded-full mt-3 mb-4 md:mt-4 md:mb-5"></div>
+        <p class="body-text text-slate-600 max-w-2xl mx-auto text-sm md:text-lg px-2 md:px-4 leading-relaxed">
           A wide range of medical and mental health resources, educational and preventative programs.
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-7">
-
-       
-
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 md:gap-7">
 
         <!-- Educational Health Care -->
-<div onclick="openServiceModal('educational')" class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-200/70 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1.5 transition-all h-full flex flex-col items-center text-center duration-300 group cursor-pointer">
-  <div class="bg-blue-100 p-5 md:p-6 rounded-2xl group-hover:bg-blue-700 transition-colors mb-5">
-    <img src="./assets/educational.png" alt="Educational" class="w-14 h-14 md:w-20 md:h-20 object-contain group-hover:brightness-0 group-hover:invert transition-all">
+<div onclick="openServiceModal('educational')" class="bg-slate-50 p-4 md:p-8 rounded-2xl border border-slate-200/70 hover:border-blue-300 hover:shadow-xl active:scale-[0.98] hover:-translate-y-1.5 transition-all h-full flex flex-col items-center text-center duration-300 group cursor-pointer">
+  <div class="bg-blue-100 p-3 md:p-6 rounded-xl md:rounded-2xl group-hover:bg-blue-700 transition-colors mb-3 md:mb-5">
+    <img src="./assets/educational.png" alt="Educational" class="w-10 h-10 md:w-20 md:h-20 object-contain group-hover:brightness-0 group-hover:invert transition-all">
   </div>
-  <h3 class="text-lg md:text-xl font-bold text-slate-900 tracking-tight mb-2 uppercase">Education Health Care</h3>
-  <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+  <h3 class="text-[13px] leading-snug md:text-xl font-bold text-slate-900 tracking-tight mb-1.5 md:mb-2 uppercase">Education Health Care</h3>
+  <p class="text-slate-600 text-[11px] md:text-base leading-relaxed">
     Securing the future of students through dedicated health screenings.
   </p>
 </div>
 
 <!-- Home Care Service -->
-<div onclick="openServiceModal('homecare')" class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-200/70 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1.5 transition-all h-full flex flex-col items-center text-center duration-300 group cursor-pointer">
-  <div class="bg-blue-100 p-5 md:p-6 rounded-2xl group-hover:bg-blue-700 transition-colors mb-5">
-    <img src="./assets/homecare2.png" alt="Home Care" class="w-14 h-14 md:w-20 md:h-20 object-contain group-hover:brightness-0 group-hover:invert transition-all">
+<div onclick="openServiceModal('homecare')" class="bg-slate-50 p-4 md:p-8 rounded-2xl border border-slate-200/70 hover:border-blue-300 hover:shadow-xl active:scale-[0.98] hover:-translate-y-1.5 transition-all h-full flex flex-col items-center text-center duration-300 group cursor-pointer">
+  <div class="bg-blue-100 p-3 md:p-6 rounded-xl md:rounded-2xl group-hover:bg-blue-700 transition-colors mb-3 md:mb-5">
+    <img src="./assets/homecare2.png" alt="Home Care" class="w-10 h-10 md:w-20 md:h-20 object-contain group-hover:brightness-0 group-hover:invert transition-all">
   </div>
-  <h3 class="text-lg md:text-xl font-bold text-slate-900 tracking-tight mb-2 uppercase">Home Care Service</h3>
-  <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+  <h3 class="text-[13px] leading-snug md:text-xl font-bold text-slate-900 tracking-tight mb-1.5 md:mb-2 uppercase">Home Care Service</h3>
+  <p class="text-slate-600 text-[11px] md:text-base leading-relaxed">
     Professional support services allowing persons to live safely in their home.
   </p>
 </div>
 
 <!-- Community Health Care -->
-<div onclick="openServiceModal('community')" class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-200/70 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1.5 transition-all h-full flex flex-col items-center text-center duration-300 group cursor-pointer">
-  <div class="bg-blue-100 p-5 md:p-6 rounded-2xl group-hover:bg-blue-700 transition-colors mb-5">
-    <img src="./assets/community.png" alt="Community" class="w-14 h-14 md:w-20 md:h-20 object-contain group-hover:brightness-0 group-hover:invert transition-all">
+<div onclick="openServiceModal('community')" class="bg-slate-50 p-4 md:p-8 rounded-2xl border border-slate-200/70 hover:border-blue-300 hover:shadow-xl active:scale-[0.98] hover:-translate-y-1.5 transition-all h-full flex flex-col items-center text-center duration-300 group cursor-pointer">
+  <div class="bg-blue-100 p-3 md:p-6 rounded-xl md:rounded-2xl group-hover:bg-blue-700 transition-colors mb-3 md:mb-5">
+    <img src="./assets/community.png" alt="Community" class="w-10 h-10 md:w-20 md:h-20 object-contain group-hover:brightness-0 group-hover:invert transition-all">
   </div>
-  <h3 class="text-lg md:text-xl font-bold text-slate-900 tracking-tight mb-2 uppercase">Community Health Care</h3>
-  <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+  <h3 class="text-[13px] leading-snug md:text-xl font-bold text-slate-900 tracking-tight mb-1.5 md:mb-2 uppercase">Community Health Care</h3>
+  <p class="text-slate-600 text-[11px] md:text-base leading-relaxed">
     Focusing on overall health characteristics of the local demography.
   </p>
 </div>
 
 <!-- Corporate Health Care -->
-<div onclick="openServiceModal('corporate')" class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-200/70 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1.5 transition-all h-full flex flex-col items-center text-center duration-300 group cursor-pointer">
-  <div class="bg-blue-100 p-5 md:p-6 rounded-2xl group-hover:bg-blue-700 transition-colors mb-5">
-    <img src="./assets/corporate.png" alt="Corporate" class="w-14 h-14 md:w-20 md:h-20 object-contain group-hover:brightness-0 group-hover:invert transition-all">
+<div onclick="openServiceModal('corporate')" class="bg-slate-50 p-4 md:p-8 rounded-2xl border border-slate-200/70 hover:border-blue-300 hover:shadow-xl active:scale-[0.98] hover:-translate-y-1.5 transition-all h-full flex flex-col items-center text-center duration-300 group cursor-pointer">
+  <div class="bg-blue-100 p-3 md:p-6 rounded-xl md:rounded-2xl group-hover:bg-blue-700 transition-colors mb-3 md:mb-5">
+    <img src="./assets/corporate.png" alt="Corporate" class="w-10 h-10 md:w-20 md:h-20 object-contain group-hover:brightness-0 group-hover:invert transition-all">
   </div>
-  <h3 class="text-lg md:text-xl font-bold text-slate-900 tracking-tight mb-2 uppercase">Corporate Health Care</h3>
-  <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+  <h3 class="text-[13px] leading-snug md:text-xl font-bold text-slate-900 tracking-tight mb-1.5 md:mb-2 uppercase">Corporate Health Care</h3>
+  <p class="text-slate-600 text-[11px] md:text-base leading-relaxed">
     Improving medical status and well-being of employees in corporate environments.
   </p>
 </div>
@@ -515,44 +555,44 @@
 
   
 
-<section class="py-20 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
+<section class="py-12 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
   <!-- Section Heading -->
-  <div class="text-center mb-10 md:mb-16">
+  <div class="text-center mb-8 md:mb-16">
     <h2 class="text-2xl md:text-4xl font-bold text-slate-800 uppercase tracking-tight">Why choose us?</h2>
-    <div class="w-16 h-1 bg-[#DB3963] mx-auto mt-4 rounded-full"></div>
+    <div class="w-14 md:w-16 h-1 bg-[#DB3963] mx-auto mt-3 md:mt-4 rounded-full"></div>
   </div>
 
   <!-- Consultation & Why Choose Us Section -->
-  <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-start mb-12 md:mb-20">
+  <div class="grid md:grid-cols-2 gap-6 md:gap-12 items-start mb-10 md:mb-20">
     <!-- Image -->
     <div class="flex justify-center order-2 md:order-1">
-      <img 
-        src="./assets/whyChooseUs.png" 
-        alt="Consultation Services" 
+      <img
+        src="./assets/whyChooseUs.png"
+        alt="Consultation Services"
         class="rounded-2xl shadow-xl max-w-lg w-full object-cover"
       />
     </div>
-    
+
     <!-- Benefits & Consultation Text -->
-    <div class="order-1 md:order-2 space-y-6 md:space-y-8">
+    <div class="order-1 md:order-2 space-y-5 md:space-y-8">
       <div class="border-l-4 border-[#DB3963] pl-4 md:pl-6">
-        <h3 class="text-2xl md:text-3xl font-black text-[#DB3963] tracking-tight leading-tight uppercase">CONSULTATION</h3>
-        <div class="w-16 h-1 bg-[#DB3963] rounded-full mt-3"></div>
+        <h3 class="text-xl md:text-3xl font-black text-[#DB3963] tracking-tight leading-tight uppercase">CONSULTATION</h3>
+        <div class="w-14 md:w-16 h-1 bg-[#DB3963] rounded-full mt-2 md:mt-3"></div>
       </div>
 
       <div class="space-y-4">
-        <p class="text-slate-700 leading-relaxed text-base md:text-lg">
+        <p class="text-slate-700 leading-relaxed text-sm md:text-lg">
           We have qualified and experienced medical manpower to ensure that our clients receive the best medical advice and care. We have a fully fledged health management system that improves the speed of delivery health care services.
         </p>
-        <p class="text-slate-600 italic border-l-2 border-slate-200 pl-4 py-1 text-sm md:text-base">
+        <p class="text-slate-600 italic border-l-2 border-slate-200 pl-4 py-1 text-xs md:text-base">
           We also offer specialized checkup programs with Gynecologist, Dermatology, Orthopedic Nephrology, Cardiologist, Ophthalmology, ENT and others as per requirement.
         </p>
       </div>
 
       <!-- Why Choose Us List -->
-      <div class="pt-2">
-        <h4 class="font-bold text-slate-900 text-lg mb-4 uppercase">Our Core Strengths:</h4>
-        <div class="grid grid-cols-2 gap-y-4 gap-x-2">
+      <div class="pt-1 md:pt-2">
+        <h4 class="font-bold text-slate-900 text-base md:text-lg mb-3 md:mb-4 uppercase">Our Core Strengths:</h4>
+        <div class="grid grid-cols-2 gap-y-3 md:gap-y-4 gap-x-2">
           <div class="flex items-center gap-2 group">
             <i data-lucide="check-circle-2" class="w-5 h-5 text-[#DB3963]"></i>
             <span class="text-slate-700 font-medium text-sm md:text-base">Quality Care</span>
@@ -591,159 +631,176 @@
   </div>
 
   <!-- Icon Grid (Features) -->
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 md:gap-8">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-7 md:gap-8">
     <!-- Quality Care -->
-    <div class="flex flex-col items-center gap-3 md:gap-4 group">
-      <div class="bg-white shadow-lg shadow-slate-200 p-5 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
-        <i data-lucide="hand-heart" class="w-7 h-7 md:w-8 md:h-8"></i>
+    <div class="flex flex-col items-center gap-2.5 md:gap-4 group">
+      <div class="bg-white shadow-lg shadow-slate-200 p-4 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
+        <i data-lucide="hand-heart" class="w-6 h-6 md:w-8 md:h-8"></i>
       </div>
-      <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Quality Care</span>
+      <span class="font-bold text-slate-700 text-[11px] md:text-sm uppercase tracking-wide text-center">Quality Care</span>
     </div>
     <!-- Cost-Effective -->
-    <div class="flex flex-col items-center gap-3 md:gap-4 group">
-      <div class="bg-white shadow-lg shadow-slate-200 p-5 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
-        <i data-lucide="activity" class="w-7 h-7 md:w-8 md:h-8"></i>
+    <div class="flex flex-col items-center gap-2.5 md:gap-4 group">
+      <div class="bg-white shadow-lg shadow-slate-200 p-4 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
+        <i data-lucide="activity" class="w-6 h-6 md:w-8 md:h-8"></i>
       </div>
-      <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Cost-Effective</span>
+      <span class="font-bold text-slate-700 text-[11px] md:text-sm uppercase tracking-wide text-center">Cost-Effective</span>
     </div>
     <!-- Expertise -->
-    <div class="flex flex-col items-center gap-3 md:gap-4 group">
-      <div class="bg-white shadow-lg shadow-slate-200 p-5 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
-        <i data-lucide="stethoscope" class="w-7 h-7 md:w-8 md:h-8"></i>
+    <div class="flex flex-col items-center gap-2.5 md:gap-4 group">
+      <div class="bg-white shadow-lg shadow-slate-200 p-4 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
+        <i data-lucide="stethoscope" class="w-6 h-6 md:w-8 md:h-8"></i>
       </div>
-      <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Expertise</span>
+      <span class="font-bold text-slate-700 text-[11px] md:text-sm uppercase tracking-wide text-center">Expertise</span>
     </div>
     <!-- Reputation -->
-    <div class="flex flex-col items-center gap-3 md:gap-4 group">
-      <div class="bg-white shadow-lg shadow-slate-200 p-5 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
-        <i data-lucide="users" class="w-7 h-7 md:w-8 md:h-8"></i>
+    <div class="flex flex-col items-center gap-2.5 md:gap-4 group">
+      <div class="bg-white shadow-lg shadow-slate-200 p-4 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
+        <i data-lucide="users" class="w-6 h-6 md:w-8 md:h-8"></i>
       </div>
-      <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Reputation</span>
+      <span class="font-bold text-slate-700 text-[11px] md:text-sm uppercase tracking-wide text-center">Reputation</span>
     </div>
     <!-- Accessibility -->
-    <div class="flex flex-col items-center gap-3 md:gap-4 group">
-      <div class="bg-white shadow-lg shadow-slate-200 p-5 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
-        <i data-lucide="map-pin" class="w-7 h-7 md:w-8 md:h-8"></i>
+    <div class="flex flex-col items-center gap-2.5 md:gap-4 group">
+      <div class="bg-white shadow-lg shadow-slate-200 p-4 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
+        <i data-lucide="map-pin" class="w-6 h-6 md:w-8 md:h-8"></i>
       </div>
-      <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Accessibility</span>
+      <span class="font-bold text-slate-700 text-[11px] md:text-sm uppercase tracking-wide text-center">Accessibility</span>
     </div>
     <!-- Innovation -->
-    <div class="flex flex-col items-center gap-3 md:gap-4 group">
-      <div class="bg-white shadow-lg shadow-slate-200 p-5 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
-        <i data-lucide="shield-check" class="w-7 h-7 md:w-8 md:h-8"></i>
+    <div class="flex flex-col items-center gap-2.5 md:gap-4 group">
+      <div class="bg-white shadow-lg shadow-slate-200 p-4 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
+        <i data-lucide="shield-check" class="w-6 h-6 md:w-8 md:h-8"></i>
       </div>
-      <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Innovation</span>
+      <span class="font-bold text-slate-700 text-[11px] md:text-sm uppercase tracking-wide text-center">Innovation</span>
     </div>
     <!-- Mental Health -->
-    <div class="flex flex-col items-center gap-3 md:gap-4 group">
-      <div class="bg-white shadow-lg shadow-slate-200 p-5 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
-        <i data-lucide="brain" class="w-7 h-7 md:w-8 md:h-8"></i>
+    <div class="flex flex-col items-center gap-2.5 md:gap-4 group">
+      <div class="bg-white shadow-lg shadow-slate-200 p-4 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
+        <i data-lucide="brain" class="w-6 h-6 md:w-8 md:h-8"></i>
       </div>
-      <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Mental Health</span>
+      <span class="font-bold text-slate-700 text-[11px] md:text-sm uppercase tracking-wide text-center">Mental Health</span>
     </div>
     <!-- Ophthalmology -->
-    <div class="flex flex-col items-center gap-3 md:gap-4 group">
-      <div class="bg-white shadow-lg shadow-slate-200 p-5 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
-        <i data-lucide="eye" class="w-7 h-7 md:w-8 md:h-8"></i>
+    <div class="flex flex-col items-center gap-2.5 md:gap-4 group">
+      <div class="bg-white shadow-lg shadow-slate-200 p-4 md:p-6 rounded-full text-[#DB3963] group-hover:bg-[#DB3963] group-hover:text-white transition-all duration-300 group-hover:scale-110">
+        <i data-lucide="eye" class="w-6 h-6 md:w-8 md:h-8"></i>
       </div>
-      <span class="font-bold text-slate-700 text-xs md:text-sm uppercase tracking-wide text-center">Ophthalmology</span>
+      <span class="font-bold text-slate-700 text-[11px] md:text-sm uppercase tracking-wide text-center">Ophthalmology</span>
     </div>
   </div>
 </section>
 
   <!-- Leadership Team Section -->
-  <section class="py-16 md:py-20 bg-slate-50 px-4 md:px-8">
+  <section class="py-12 md:py-20 bg-slate-50 px-4 md:px-8">
     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-10 md:mb-16">
+      <div class="text-center mb-8 md:mb-16">
         <h2 class="section-heading text-2xl md:text-4xl font-bold text-slate-800">Our Leadership Team</h2>
-        <div class="w-20 h-1 bg-blue-700 mx-auto mt-4 rounded-full"></div>
-        <p class="body-text text-slate-600 max-w-2xl mx-auto text-sm md:text-lg mt-4 px-4">
+        <div class="w-16 md:w-20 h-1 bg-blue-700 mx-auto mt-3 md:mt-4 rounded-full"></div>
+        <p class="body-text text-slate-600 max-w-2xl mx-auto text-sm md:text-lg mt-3 md:mt-4 px-4">
           Meet the dedicated leaders behind All Nepal Health Treatment Clinic
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-6xl mx-auto">
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-10 max-w-6xl mx-auto">
         <!-- Chairman -->
-        <div class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
-          <div class="relative h-80 overflow-hidden">
+        <div class="group bg-white rounded-xl md:rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
+          <div class="relative h-56 md:h-80 overflow-hidden">
             <img
               src="./assets/peoples/chairManGhanashyamPandey.jpg"
               alt="Ghanashyam Pandey"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-6">
-              <h3 class="text-white font-bold text-2xl tracking-tight drop-shadow-lg">Ghanashyam Pandey</h3>
-              <div class="w-12 h-0.5 bg-blue-400 mt-2 rounded-full"></div>
-              <p class="text-white/90 text-sm font-semibold uppercase tracking-widest mt-2">Chairman</p>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 md:p-6">
+              <h3 class="text-white font-bold text-sm md:text-2xl tracking-tight drop-shadow-lg leading-tight">Ghanashyam Pandey</h3>
+              <div class="w-8 md:w-12 h-0.5 bg-blue-400 mt-1.5 md:mt-2 rounded-full"></div>
+              <p class="text-white/90 text-[10px] md:text-sm font-semibold uppercase tracking-widest mt-1 md:mt-2">Chairman</p>
             </div>
           </div>
         </div>
 
         <!-- CEO -->
-        <div class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
-          <div class="relative h-80 overflow-hidden">
+        <div class="group bg-white rounded-xl md:rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
+          <div class="relative h-56 md:h-80 overflow-hidden">
             <img
               src="./assets/peoples/CEOSumanPandey.jpg"
               alt="Suman Pandey"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-6">
-              <h3 class="text-white font-bold text-2xl tracking-tight drop-shadow-lg">Suman Pandey</h3>
-              <div class="w-12 h-0.5 bg-blue-400 mt-2 rounded-full"></div>
-              <p class="text-white/90 text-sm font-semibold uppercase tracking-widest mt-2">CEO</p>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 md:p-6">
+              <h3 class="text-white font-bold text-sm md:text-2xl tracking-tight drop-shadow-lg leading-tight">Suman Pandey</h3>
+              <div class="w-8 md:w-12 h-0.5 bg-blue-400 mt-1.5 md:mt-2 rounded-full"></div>
+              <p class="text-white/90 text-[10px] md:text-sm font-semibold uppercase tracking-widest mt-1 md:mt-2">CEO</p>
             </div>
           </div>
         </div>
 
         <!-- Medical Head -->
-        <div class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
-          <div class="relative h-80 overflow-hidden">
+        <div class="group bg-white rounded-xl md:rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
+          <div class="relative h-56 md:h-80 overflow-hidden">
             <img
               src="./assets/peoples/MedicalHeadDrPrashantBashyal.jpg"
               alt="Dr. Prashant Bashyal"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-6">
-              <h3 class="text-white font-bold text-2xl tracking-tight drop-shadow-lg">Dr. Prashant Bashyal</h3>
-              <div class="w-12 h-0.5 bg-blue-400 mt-2 rounded-full"></div>
-              <p class="text-white/90 text-sm font-semibold uppercase tracking-widest mt-2">Medical Head</p>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 md:p-6">
+              <h3 class="text-white font-bold text-sm md:text-2xl tracking-tight drop-shadow-lg leading-tight">Dr. Prashant Bashyal</h3>
+              <div class="w-8 md:w-12 h-0.5 bg-blue-400 mt-1.5 md:mt-2 rounded-full"></div>
+              <p class="text-white/90 text-[10px] md:text-sm font-semibold uppercase tracking-widest mt-1 md:mt-2">Medical Head</p>
             </div>
           </div>
         </div>
 
         <!-- Dr Medha Osti -->
-        <div class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
-          <div class="relative h-80 overflow-hidden">
+        <div class="group bg-white rounded-xl md:rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
+          <div class="relative h-56 md:h-80 overflow-hidden">
             <img
               src="./assets/peoples/DrMedhaOsti.jpg"
               alt="Dr. Medha Osti"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-6">
-              <h3 class="text-white font-bold text-2xl tracking-tight drop-shadow-lg">Dr. Medha Osti</h3>
-              <div class="w-12 h-0.5 bg-blue-400 mt-2 rounded-full"></div>
-              <p class="text-white/90 text-sm font-semibold uppercase tracking-widest mt-2">DENTAL HEAD</p>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 md:p-6">
+              <h3 class="text-white font-bold text-sm md:text-2xl tracking-tight drop-shadow-lg leading-tight">Dr. Medha Osti</h3>
+              <div class="w-8 md:w-12 h-0.5 bg-blue-400 mt-1.5 md:mt-2 rounded-full"></div>
+              <p class="text-white/90 text-[10px] md:text-sm font-semibold uppercase tracking-widest mt-1 md:mt-2">DENTAL HEAD</p>
+            </div>
+          </div>
+        </div>
+
+          <!-- OPTIMETRIST -->
+         <div class="group bg-white rounded-xl md:rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
+          <div class="relative h-56 md:h-80 overflow-hidden">
+            <img
+              src="./assets/peoples/Bhawana_Timalsina_Optometrist.png"
+              alt="Dr. Medha Osti"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 md:p-6">
+              <h3 class="text-white font-bold text-sm md:text-2xl tracking-tight drop-shadow-lg leading-tight">Dr. Bhawana Timalsina </h3>
+              <div class="w-8 md:w-12 h-0.5 bg-blue-400 mt-1.5 md:mt-2 rounded-full"></div>
+              <p class="text-white/90 text-[10px] md:text-sm font-semibold uppercase tracking-widest mt-1 md:mt-2">OPTOMETRIST</p>
             </div>
           </div>
         </div>
 
         <!-- CTO -->
-        <div class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100">
-          <div class="relative h-80 overflow-hidden">
+        <div class="group bg-white rounded-xl md:rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-slate-100 col-span-2 md:col-span-1 max-md:max-w-[calc(50%-0.5rem)] max-md:mx-auto max-md:w-full">
+          <div class="relative h-56 md:h-80 overflow-hidden">
             <img
               src="./assets/peoples/CTONishanPoudel.jpeg"
               alt="Nishan Poudel"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-6">
-              <h3 class="text-white font-bold text-2xl tracking-tight drop-shadow-lg">Er. Nishan Poudel</h3>
-              <div class="w-12 h-0.5 bg-blue-400 mt-2 rounded-full"></div>
-              <p class="text-white/90 text-sm font-semibold uppercase tracking-widest mt-2">CTO</p>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 md:p-6">
+              <h3 class="text-white font-bold text-sm md:text-2xl tracking-tight drop-shadow-lg leading-tight">Er. Nishan Poudel</h3>
+              <div class="w-8 md:w-12 h-0.5 bg-blue-400 mt-1.5 md:mt-2 rounded-full"></div>
+              <p class="text-white/90 text-[10px] md:text-sm font-semibold uppercase tracking-widest mt-1 md:mt-2">CTO</p>
             </div>
           </div>
         </div>
@@ -752,8 +809,8 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-400 py-12 md:py-20 px-4 md:px-8 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+  <footer class="bg-slate-900 text-slate-400 py-10 md:py-20 px-4 md:px-8 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-7 md:gap-12">
       <div class="md:col-span-2 space-y-4 md:space-y-6">
          <div class="flex items-center gap-3 md:gap-4">
            <img src="./assets/all_nepal_health_logo_transparent.png" alt="Logo" class="h-12 md:h-14 w-auto brightness-0 invert" referrerpolicy="no-referrer" />
@@ -992,6 +1049,27 @@
       </div>
     </div>
   </div>
+
+  <!-- Mobile Sticky Action Bar (mobile only via CSS) -->
+  <nav class="mobile-cta-bar" aria-label="Quick actions">
+    <a href="tel:+97714950371" class="mobile-cta-btn primary">
+      <i data-lucide="phone" class="w-4 h-4"></i>
+      <span>Call</span>
+    </a>
+    <a href="https://maps.google.com/?q=Nagarjun-01+Raniban+Kathmandu" target="_blank" rel="noopener" class="mobile-cta-btn danger">
+      <i data-lucide="map-pin" class="w-4 h-4"></i>
+      <span>Directions</span>
+    </a>
+    <a href="mailto:allnepalhealthtreatmentclinic@gmail.com" class="mobile-cta-btn ghost">
+      <i data-lucide="mail" class="w-4 h-4"></i>
+      <span>Email</span>
+    </a>
+  </nav>
+
+  <script>
+    // Render any data-lucide icons added after the initial createIcons() call (modal, CTA bar)
+    if (window.lucide && typeof lucide.createIcons === 'function') { lucide.createIcons(); }
+  </script>
 </body>
 </html>
 
